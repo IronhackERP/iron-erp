@@ -1,5 +1,8 @@
 module.exports = {
-  login: (req, res, next) => {
+  get: (req, res, next) => {
     res.render('auth/login')
+  },
+  post: (req, res, next) => {
+    res.render('auth/login')    
   }
 }
