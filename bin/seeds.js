@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/user-example-development', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/iron-erp', {useMongoClient: true});
 const User = require('../models/User');
 
 const users = [
@@ -19,7 +19,7 @@ User.create(users, (err, docs) => {
   }
 
   docs.forEach((user) => {
-    console.log(user.name);
+    console.log(user.username);
   });
   mongoose.connection.close();
 });
