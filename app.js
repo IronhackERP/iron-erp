@@ -6,7 +6,10 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const expressLayout = require('express-ejs-layouts')
+const session = require("express-session")
+const flash = require("connect-flash")
 const passport = require('passport')
+const MongoStore = require("connect-mongo")(session);
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
@@ -16,6 +19,15 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.set('layout', 'layouts/main')
 app.use(expressLayout)
+app.use(session({
+  secret: "IronERP",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60  // 1 day -> 24 * 60 * 60
+  })
+}))
+app.use(flash())  
 app.locals.title = 'IronERP'
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
