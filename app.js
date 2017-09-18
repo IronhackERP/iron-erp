@@ -15,6 +15,7 @@ mongoose.Promise = global.Promise
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
+
 mongoose.connect(process.env.MONGO_URI)
   .then('Connected to DB')
 const app = express()
