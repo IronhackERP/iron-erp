@@ -9,11 +9,14 @@ const expressLayout = require('express-ejs-layouts')
 const session = require("express-session")
 const flash = require("connect-flash")
 const passport = require('passport')
-const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo")(session)
+const debug = require('debug')("app:"+path.basename(__filename).split('.')[0])
+mongoose.Promise = global.Promise
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
 mongoose.connect(process.env.MONGO_URI)
+  .then('Connected to DB')
 const app = express()
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -24,7 +27,7 @@ app.use(session({
   cookie: { maxAge: 60000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60  // 1 day -> 24 * 60 * 60
+    ttl: 24 * 60 * 60  // 1 day
   })
 }))
 app.use(flash())  
@@ -43,8 +46,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 const indexRoute = require('./routes/index')
 const authRoutes = require('./routes/auth')
+const dashboardRoute = require('./routes/dashboard')
 app.use(indexRoute)
 app.use(authRoutes)
+app.use(dashboardRoute)
 require('./config/error_404.js')
 require('./config/errors.js')
 

@@ -9,6 +9,7 @@ const debug = require('debug')(debugPath)
 
 passport.use(new LocalStrategy((username, password, next) => {
   User.findOne({ username }, (err, user) => {
+    console.log('ENTRA', username, password)
     if (err) {
       return next(err)
     }
