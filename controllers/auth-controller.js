@@ -4,5 +4,11 @@ module.exports = {
   },
   post: (req, res, next) => {
     res.render('auth/login')    
+  },
+  put: (req, res, next) => {
+
+  },
+  delete: (req, res, next) => {
+    
   }
 }
