@@ -1,10 +1,16 @@
+const PATHS = require('../routes/paths')
+const passport = require('passport')
+
 module.exports = {
   get: (req, res, next) => {
-    res.render('auth/login')
+    res.render('index')
   },
-  post: (req, res, next) => {
-    res.render('auth/login')    
-  },
+  post: passport.authenticate('local', {
+    successRedirect: PATHS.DASHBOARD_PATH,
+    failureRedirect: PATHS.ROOT_PATH,
+    failureFlash: true,
+    passReqToCallback: true
+  }),
   put: (req, res, next) => {
 
   },

@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const expressLayout = require('express-ejs-layouts')
+const passport = require('passport')
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
@@ -24,6 +25,10 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+require('./passport/serializers')
+require('./passport/local')
+app.use(passport.initialize())
+app.use(passport.session())
 const indexRoute = require('./routes/index')
 const authRoutes = require('./routes/auth')
 app.use(indexRoute)
