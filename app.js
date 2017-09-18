@@ -9,6 +9,7 @@ const expressLayout = require('express-ejs-layouts')
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
+
 mongoose.connect(process.env.MONGO_URI)
 const app = express()
 app.set('views', path.join(__dirname, 'views'))
