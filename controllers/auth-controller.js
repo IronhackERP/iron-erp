@@ -4,7 +4,6 @@ const User = require('../models/User')
 const PATHS = require('../routes/paths')
 const passport = require('passport')
 
-
 module.exports = {
   get: (req, res, next) => {
     res.render('index')
@@ -15,19 +14,28 @@ module.exports = {
     failureFlash: true,
     passReqToCallback: true
   }),
-  new: (req, res, next) => {
-    const username = req.body.username
+  get_new: (req, res, next) => {
+    res.render('users/new')
+  },
+  post_new: (req, res, next) => {
+    const username = req.body.user
     const password = req.body.password
     const email = req.body.email
     const rol = req.body.rol
 
-    if(username === '' && password === ''){
-      res.render('index', {message: 'Indicate username and password'})
+    if (username === '' && password === '') {
+      res.render('users/new', {
+        message: 'Indicate username and password'
+      })
     }
 
-    User.findOne({username}, 'username', (err, user) =>{
-      if(user !== null){
-        res.render('index', {message: 'The username already exists'})
+    User.findOne({
+      username
+    }, 'username', (err, user) => {
+      if (user !== null) {
+        res.render('users/new', {
+          message: 'The username already exists'
+        })
         return
       }
 
@@ -35,20 +43,22 @@ module.exports = {
       const hashPass = bcrypt.hashSync(password, salt)
 
       const newUser = new User({
-        username,
-        password,
-        email,
-        rol
-      })
-      .save()
-      .then(user => res.redirect(PATHS.DASHBOARD_PATH))
-      .catch(err => res.render('index', {message: 'Something went wrong'}))
+          username,
+          password,
+          email,
+          rol
+        })
+        .save()
+        .then(user => res.redirect(PATHS.DASHBOARD_PATH, {user: user}))
+        .catch(err => res.redirect(PATHS.DASHBOARD_PATH, {
+          message: err
+        }))
     })
   },
   put: (req, res, next) => {
 
   },
   delete: (req, res, next) => {
-    
+
   }
 }
