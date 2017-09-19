@@ -4,14 +4,17 @@
     <%= message %>
   </div>
   <% } %>
-  <p><%= user.id %></p>
-<form action="/users/<%= user.id %>/edit" method="POST">
+<form action="/users/<%= selectedUser.id %>/edit" method="POST">
       <label for="user">User</label>
-      <input type="text" name="user" id="user" value="<%= user.username %>">
+      <input type="text" name="user" id="user" value="<%= selectedUser.username %>">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName" value="<%= selectedUser.firstName %>">
+      <label for="lastName">User</label>
+      <input type="text" name="lastName" id="lastName" value="<%= selectedUser.lastName %>">
       <label for="password">Password</label>
-      <input type="password" name="password" id="password" value="<%= user.password %>">
+      <input type="password" name="password" id="password" value="<%= selectedUser.password %>">
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" value="<%= user.email %>">
+      <input type="email" name="email" id="email" value="<%= selectedUser.email %>">
       <select name="rol" id="rol">
     <option value="admin">Admin</option>
     <option value="employee">Employee</option>

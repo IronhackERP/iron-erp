@@ -8,6 +8,8 @@ module.exports = {
   },
   post: (req, res, next) => {
     const username = req.body.user
+    const firstName = req.body.firstName
+    const lastName = req.body.lastName
     const password = req.body.password
     const email = req.body.email
     const rol = req.body.rol
@@ -30,9 +32,10 @@ module.exports = {
 
       const salt = bcrypt.genSaltSync(bcryptSalt)
       const hashPass = bcrypt.hashSync(password, salt)
-      console.log(hashPass)
       const newUser = new User({
           username,
+          firstName,
+          lastName,
           password: hashPass,
           email,
           rol
@@ -43,20 +46,20 @@ module.exports = {
     })
   },
   get_edit: (req, res, next) => {
-    const userID = req.params.id
-
-    console.log(req.user)
-
-    User.find(userID)
-      .then(user => {
-        console.log(user)
-        res.render(`/users/${userID}/edit`, {
-          user
-        })
-      })
+    User.findById(req.params.id, (err, selectedUser) => {
+      if(err) next(err)
+      res.render('users/edit', {selectedUser})
+    })
   },
   put: (req, res, next) => {
-
+    const user = new User({
+      user: req.body.user,
+      email: req.body.email,      
+      password: req.body.password,
+      rol: req.body.rol
+    }).save()
+    .then(user => res.redirect('/users'))
+    .catch(err => next(err))
   },
   delete: (req, res, next) => {
     const userID = req.params.id
