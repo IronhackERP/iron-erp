@@ -10,17 +10,17 @@ const session = require("express-session")
 const flash = require("connect-flash")
 const passport = require('passport')
 const MongoStore = require("connect-mongo")(session)
-const debug = require('debug')("app:"+path.basename(__filename).split('.')[0])
+const debug = require('debug')("app:" + path.basename(__filename).split('.')[0])
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config()
-}
+  if (process.env.NODE_ENV === 'development') {
+    require('dotenv').config()
+  }
 
-mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGO_URI)
-  .then('Connected to DB')
+  mongoose.Promise = global.Promise
+  mongoose.connect(process.env.MONGO_URI)
+    .then('Connected to DB')
 
   app.set('views', path.join(__dirname, '../views'))
   app.set('view engine', 'ejs')
@@ -30,16 +30,20 @@ mongoose.connect(process.env.MONGO_URI)
     extended: false
   }))
   app.use(cookieParser())
-  app.use(express.static(path.join(__dirname, 'public')))
+  app.use('/materialize-css', express.static(__dirname + '/node_modules/materialize/dist/'))  
+  app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'))
+  app.use(express.static(path.join(__dirname, '../public')))
   app.set('layout', 'layouts/main')
   app.use(expressLayout)
 
   app.use(session({
     secret: "IronERP",
-    cookie: { maxAge: 60000 },
+    cookie: {
+      maxAge: 60000
+    },
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      ttl: 24 * 60 * 60  // 1 day
+      ttl: 24 * 60 * 60 // 1 day
     })
   }))
 
@@ -49,7 +53,7 @@ mongoose.connect(process.env.MONGO_URI)
   app.use(passport.initialize())
   app.use(passport.session())
 
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
     res.locals.user = req.user;
     res.locals.title = 'IronERP';
     next();

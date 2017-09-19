@@ -16,6 +16,8 @@
     "express": "~4.14.1",
     "express-ejs-layouts": "^2.2.0",
     "express-session": "^1.15.5",
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.100.2",
     "mongo-session": "^0.2.15",
     "mongoose": "~4.8.5",
     "morgan": "~1.7.0",

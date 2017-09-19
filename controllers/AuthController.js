@@ -52,6 +52,11 @@ module.exports = {
         .catch(err => console.log("error"))
     })
   },
+  get_logout: (req, res, next) => {
+    req.session.destroy(err => {
+      res.redirect('/')
+    })
+  },
   put: (req, res, next) => {
 
   },
