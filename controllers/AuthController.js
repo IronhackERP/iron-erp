@@ -1,16 +1,15 @@
 const bcrypt = require('bcrypt')
 const bcryptSalt = 10
 const User = require('../models/User')
-const PATHS = require('../routes/paths')
 const passport = require('passport')
 
 module.exports = {
   get: (req, res, next) => {
-    res.render('index')
+    res.render('users/show')
   },
   post: passport.authenticate('local', {
-    successRedirect: PATHS.DASHBOARD_PATH,
-    failureRedirect: PATHS.ROOT_PATH,
+    successRedirect: '/dashboard',
+    failureRedirect: '/',
     failureFlash: true,
     passReqToCallback: true
   }),
@@ -49,7 +48,7 @@ module.exports = {
           rol
         })
         .save()
-        .then(user => { console.log(user); res.redirect("storehouse/show", {user: user})})
+        .then(user => res.redirect("/users"))
         .catch(err => console.log("error"))
     })
   },

@@ -1,5 +1,5 @@
 module.exports = {
   get:  (req, res, next) => {
-    res.render('supplier/list');
+    res.render('dashboard/show');
   }
 }

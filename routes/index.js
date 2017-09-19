@@ -1,8 +1,7 @@
 const express = require('express')
 const router  = express.Router()
-const indexRouter = require('../controllers/index-controller')
-const PATHS = require('./paths')
+const indexRouter = require('../controllers/IndexController')
 
-router.get(PATHS.ROOT_PATH, indexRouter.get)
+router.get('/', indexRouter.get)
 
 module.exports = router

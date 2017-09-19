@@ -1,8 +1,7 @@
 const express = require('express')
 const router  = express.Router()
-const storehouseRouter = require('../controllers/storehouse-controller')
-const PATHS = require('./paths')
+const dashboardRouter = require('../controllers/DashboardController')
 
-router.get(PATHS.DASHBOARD_PATH, storehouseRouter.get)
+router.get('/dashboard', dashboardRouter.get)
 
 module.exports = router
