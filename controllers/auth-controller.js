@@ -41,18 +41,16 @@ module.exports = {
 
       const salt = bcrypt.genSaltSync(bcryptSalt)
       const hashPass = bcrypt.hashSync(password, salt)
-
+     console.log(hashPass)
       const newUser = new User({
           username,
-          password,
+          password: hashPass,
           email,
           rol
         })
         .save()
-        .then(user => res.redirect(PATHS.DASHBOARD_PATH, {user: user}))
-        .catch(err => res.redirect(PATHS.DASHBOARD_PATH, {
-          message: err
-        }))
+        .then(user => { console.log(user); res.redirect("storehouse/show", {user: user})})
+        .catch(err => console.log("error"))
     })
   },
   put: (req, res, next) => {

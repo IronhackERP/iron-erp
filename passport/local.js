@@ -9,15 +9,14 @@ const debug = require('debug')(debugPath)
 
 passport.use(new LocalStrategy((username, password, next) => {
   User.findOne({ username }, (err, user) => {
-    console.log('ENTRA', username, password)
     if (err) {
-      return next(err)
+      return next(err, {message: err})
     }
     if (!user) {
       debug('Incorrect Username')
       return next(null, false, { message: "Incorrect username" })
     }
-    if (!bcrypt.compareSync(password, user.password)) {
+    if (!bcrypt.compareSync(password, user.password)) {    
       debug('Incorrect Password')
       return next(null, false, { message: "Incorrect password" })
     }
