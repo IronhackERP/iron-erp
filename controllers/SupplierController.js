@@ -13,7 +13,7 @@ module.exports = {
   },
 
   post_new: (req, res, next) => {
-    const name = req.body.name;
+    const name = req.body.supplier;
     const companyName = req.body.companyName;
     const phoneNumber = req.body.phoneNumber;
     const email = req.body.email;
@@ -36,12 +36,13 @@ module.exports = {
     Supplier.findOne({
       name
     }, 'name', (err, supplier) => {
-      if (name !== null) {
+      if (supplier !== null) {
         res.render('suppliers/new', {
           message: 'The name already exists'
         })
         return
       }
+
       const newSupplier = new Supplier({
           name,
           companyName,
@@ -49,8 +50,11 @@ module.exports = {
           email
         })
         .save()
-        .then(supplier => res.redirect("/suppliers/show"))
-        .catch(err => console.log("error"))
+        .then(supplier => res.redirect("/suppliers"))
+        .catch((err) => {
+          console.log(err)
+
+        })
     })
   },
 
