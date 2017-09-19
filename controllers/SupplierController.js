@@ -1,3 +1,5 @@
+const Supplier = require('../models/Supplier')
+
 module.exports = {
   get: (req, res, next) => {
     Supplier.find({})
@@ -31,7 +33,7 @@ module.exports = {
       })
     }
 
-    Supplier.finOne({
+    Supplier.findOne({
       name
     }, 'name', (err, supplier) => {
       if (name !== null) {
@@ -50,5 +52,19 @@ module.exports = {
         .then(supplier => res.redirect("/suppliers/show"))
         .catch(err => console.log("error"))
     })
-  }
+  },
+
+  // get_edit: (req, res, next) => {
+  //   const supplierID = req.params.id
+  //
+  //   console.log(req.supplier)
+  //
+  //   Supplier.find(supplierID)
+  //     .then(supplier => {
+  //       console.log(supplier)
+  //       res.render(`/suppliers/${supplierID}/edit`, {
+  //         supplier
+  //       })
+  //     })
+  // },
 }

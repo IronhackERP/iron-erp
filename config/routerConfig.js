@@ -1,15 +1,15 @@
 module.exports = (app) => {
-  const indexRoute = require('../routes/index')
-  const authRoutes = require('../routes/auth')
-  const userRoutes = require('../routes/user')
-  const dashboardRoute = require('../routes/dashboard')
-  // const supplierRouter = require('./routes/suppliers')
-  // const clientRouter = require('./routes/clients')
-  
-  app.use(indexRoute)
-  app.use(authRoutes)
-  app.use(userRoutes)
-  app.use(dashboardRoute)
-  // app.use(supplierRouter)
+  const indexRouter = require('../routes/index')
+  const authRouter = require('../routes/auth')
+  const userRouter = require('../routes/user')
+  const dashboardRouter = require('../routes/dashboard')
+  const supplierRouter = require('../routes/supplier')
+  // const clientRouter = require('../routes/client')
+
+  app.use(indexRouter)
+  app.use(authRouter)
+  app.use(userRouter)
+  app.use(dashboardRouter)
+  app.use(supplierRouter)
   // app.use(clientRouter)
 }
