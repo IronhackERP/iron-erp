@@ -1,0 +1,8 @@
+<h1>List of Suppliers</h1>
+<a href="/suppliers/new">New supplier</a>
+<a href="/dashboard">Back to dashboard</a>
+<ul>
+<% suppliers.forEach( supplier => { %>
+     <li><%= supplier.name %></li>
+<% }) %>
+</ul>

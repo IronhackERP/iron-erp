@@ -1,0 +1,16 @@
+<h1>New Supplier</h1>
+<% if (typeof message != "undefined") { %>
+  <div class="error-message"><%= message %></div>
+<% } %>
+<form action="new" method="POST">
+  <label for="supplier">User</label>
+  <input type="text" name="supplier" id="supplier">
+  <label for="company">Company</label>
+  <input type="text" name="company" id="company">
+  <label for="phone">PhoneNumber</label>
+  <input type="text" name="phone" id="phone">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email">
+  <button>Create</button>
+  <a href="/suppliers">Cancel</a>
+</form>
