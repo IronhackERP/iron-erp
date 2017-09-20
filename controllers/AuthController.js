@@ -7,7 +7,6 @@ module.exports = {
   get: (req, res, next) => {
     User.find({})
     .then(users => {
-      console.log(users)
       res.render('users/show', {users})
     })
     .catch(err => console.log('ERROR'))
