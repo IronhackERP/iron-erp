@@ -4,7 +4,7 @@ const User = require('../models/User')
 
 module.exports = {
   get: (req, res, next) => {
-    res.render('users/new')
+    res.render('users/new', { title: 'List of Users'})
   },
   post: (req, res, next) => {
     const username = req.body.user
@@ -52,14 +52,17 @@ module.exports = {
     })
   },
   put: (req, res, next) => {
-    const user = new User({
-      user: req.body.user,
+    const user = {
+      username: req.body.user,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,      
       password: req.body.password,
       rol: req.body.rol
-    }).save()
+    }
+    User.findByIdAndUpdate(req.params.id, user)
     .then(user => res.redirect('/users'))
-    .catch(err => next(err))
+    .catch(err => console.log(err))
   },
   delete: (req, res, next) => {
     const userID = req.params.id
