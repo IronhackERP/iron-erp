@@ -1,0 +1,24 @@
+<h1>New User</h1>
+<% if (typeof message != "undefined") { %>
+  <div class="error-message">
+    <%= message %>
+  </div>
+  <% } %>
+    <form action="new" method="POST">
+      <label for="user">User</label>
+      <input type="text" name="user" id="user">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName">
+      <label for="lastName">last Name</label>
+      <input type="text" name="lastName" id="lastName">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email">
+      <select name="rol" id="rol">
+    <option value="admin">Admin</option>
+    <option value="employee">Employee</option>
+  </select>
+      <button class="waves-effect waves-light btn">Create</button>
+      <a class="waves-effect waves-light btn red" href="/users">Cancel</a>
+    </form>
