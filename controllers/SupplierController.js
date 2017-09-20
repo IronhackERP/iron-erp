@@ -68,12 +68,14 @@ module.exports = {
   },
 
   put: (req, res, next) => {
+    
    const supplier = {
      name: req.body.supplier,
      companyName: req.body.companyName,
      phoneNumber: req.body.phoneNumber,
      email: req.body.email
    }
+
    Supplier.findByIdAndUpdate(req.params.id, supplier)
    .then(supplier => res.redirect('/suppliers'))
    .catch(err => console.log(err))
