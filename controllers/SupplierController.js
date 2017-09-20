@@ -79,4 +79,16 @@ module.exports = {
    .catch(err => console.log(err))
  },
 
+ delete: (req, res, next) => {
+    const supplierID = req.params.id
+    console.log(supplierID)
+
+    Supplier.findByIdAndRemove(supplierID, (err, supplier) => {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect('/suppliers');
+    })
+  }
+
 }
