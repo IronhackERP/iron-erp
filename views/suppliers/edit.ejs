@@ -1,0 +1,16 @@
+<h1>Edit Supplier</h1>
+<% if (typeof message != "undefined") { %>
+  <div class="error-message"><%= message %></div>
+<% } %>
+<form action="/suppliers/<%= selectedSupplier.id %>/edit" method="POST">
+  <label for="supplier">Supplier</label>
+  <input type="text" name="supplier" id="supplier">
+  <label for="company">Company</label>
+  <input type="text" name="companyName" id="companyName">
+  <label for="phone">PhoneNumber</label>
+  <input type="number" name="phoneNumber" id="phoneNumber">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email">
+  <button class="waves-effect waves-light btn">Update</button>
+  <a class="waves-effect waves-light red btn" href="/suppliers">Cancel</a>
+</form>

@@ -1,8 +1,27 @@
 <h1>List of Suppliers</h1>
 <a href="/suppliers/new">New supplier</a>
 <a href="/dashboard">Back to dashboard</a>
-<ul>
-<% suppliers.forEach( supplier => { %>
-     <li><%= supplier.name %></li>
-<% }) %>
-</ul>
+
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Supplier Name</th>
+      <th>Company Name</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% suppliers.forEach(supplier => { %>
+      <tr>
+        <td><%= supplier.name %></td>
+        <td><%= supplier.companyName %></td>
+        <td><%= supplier.phoneNumber %></td>
+        <td><%= supplier.email %></td>
+        <td><a class="waves-effect waves-light btn" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td>
+        <td><a class="waves-effect waves-light btn red" href="/suppliers/<%= supplier._id%>/delete">Delete</a></td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

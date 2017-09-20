@@ -3,9 +3,11 @@ const Supplier = require('../models/Supplier')
 module.exports = {
   get: (req, res, next) => {
     Supplier.find({})
-    .then(suppliers=>{
-    res.render('suppliers/show',{suppliers});
-    })
+      .then(suppliers => {
+        res.render('suppliers/show', {
+          suppliers
+        });
+      })
   },
 
   get_new: (req, res, next) => {
@@ -58,17 +60,23 @@ module.exports = {
     })
   },
 
-  // get_edit: (req, res, next) => {
-  //   const supplierID = req.params.id
-  //
-  //   console.log(req.supplier)
-  //
-  //   Supplier.find(supplierID)
-  //     .then(supplier => {
-  //       console.log(supplier)
-  //       res.render(`/suppliers/${supplierID}/edit`, {
-  //         supplier
-  //       })
-  //     })
-  // },
+  get_edit: (req, res, next) => {
+    Supplier.findById(req.params.id, (err, selectedSupplier) => {
+      if(err) next(err)
+      res.render('suppliers/edit', {selectedSupplier})
+    })
+  },
+
+  put: (req, res, next) => {
+   const supplier = {
+     name: req.body.supplier,
+     companyName: req.body.companyName,
+     phoneNumber: req.body.phoneNumber,
+     email: req.body.email
+   }
+   Supplier.findByIdAndUpdate(req.params.id, supplier)
+   .then(supplier => res.redirect('/suppliers'))
+   .catch(err => console.log(err))
+ },
+
 }
