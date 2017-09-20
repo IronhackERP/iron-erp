@@ -68,7 +68,7 @@ module.exports = {
   },
 
   put: (req, res, next) => {
-    
+
    const supplier = {
      name: req.body.supplier,
      companyName: req.body.companyName,
