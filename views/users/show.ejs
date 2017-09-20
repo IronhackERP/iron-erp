@@ -1,5 +1,9 @@
 <h1>List of users</h1>
-<a class="waves-effect waves-light btn" href="/users/new">New user</a>
+<!-- Modal Trigger -->
+<button data-target="modal-users-new" class="btn modal-trigger">New User</button>
+<%- include("partials/new.ejs") %>
+
+<!-- <a class="waves-effect waves-light btn" href="/users/new">New user</a> -->
 <a class="waves-effect waves-light btn" href="/dashboard">Back to dashboard</a>
 <hr>
 <table>

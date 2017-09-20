@@ -1,10 +1,14 @@
+<!-- Modal Structure -->
+<div id="modal-users-new" class="modal">
+  <div class="modal-content">
+
 <h1>New User</h1>
 <% if (typeof message != "undefined") { %>
   <div class="error-message">
     <%= message %>
   </div>
   <% } %>
-    <form action="new" method="POST">
+    <form action="/users/new" method="POST">
       <label for="user">User</label>
       <input type="text" name="user" id="user">
       <label for="firstName">First Name</label>
@@ -22,3 +26,6 @@
       <button class="waves-effect waves-light btn">Create</button>
       <a class="waves-effect waves-light btn red" href="/users">Cancel</a>
     </form>
+
+  </div>
+</div>
