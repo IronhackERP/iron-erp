@@ -3,8 +3,7 @@
 <button data-target="modal-users-new" class="btn modal-trigger">New User</button>
 <%- include("partials/new.ejs") %>
 
-<!-- <a class="waves-effect waves-light btn" href="/users/new">New user</a> -->
-<a class="waves-effect waves-light btn" href="/dashboard">Back to dashboard</a>
+<a class="waves-effect waves-light btn back" href="/dashboard">Back to dashboard</a>
 <hr>
 <table>
   <thead>
@@ -24,9 +23,16 @@
         <td><%= user.lastName %></td>
         <td><%= user.email %></td>
         <td><%= user.rol %></td>
-        <td><a class="waves-effect waves-light btn" href="/users/<%= user._id%>/edit">Edit</a></td>
+
+        <!-- <td><a class="waves-effect waves-light btn" href="/users/<%= user._id%>/edit">Edit</a></td> -->
+
+        <!-- Modal Trigger -->
+        <td><button data-target="modal-users-edit" class="btn modal-trigger">Edit</button></td>
         <td><a class="waves-effect waves-light btn red" href="/users/<%= user._id%>/delete">Delete</a></td>
       </tr>
       <% }) %>
+
+<%- include("partials/edit.ejs") %>
+
   </tbody>
 </table>

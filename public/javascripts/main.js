@@ -3,4 +3,6 @@ $(document).ready(function(){
   $('select').material_select();
   $('#modal-suppliers-new').modal( );
   $('#modal-users-new').modal( );
+  $('#modal-users-edit').modal( );
+  $('#modal-suppliers-edit').modal( );
   });
