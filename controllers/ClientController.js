@@ -1,10 +1,15 @@
 const Client = require('../models/Client')
-const User = require('../models/user')
+
 
 module.exports = {
-  get: (req, res, next) => {},
-  post: (req, res, next) => {},
-  get_edit: (req, res, next) => {},
-  put: (req, res, next) => {},
-  delete: (req, res, next) => {}
+  allClients: (req, res, next) => {
+    res.render('clients/show', { title: 'Clients list'})
+  },
+  client: (req, res, next) => {
+    res.render('clients/show')
+  },
+  newClient: (req, res, next) => {},
+  getEditClient: (req, res, next) => {},
+  postEditClient: (req, res, next) => {},
+  deleteClient: (req, res, next) => {}
 }
