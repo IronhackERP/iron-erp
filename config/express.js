@@ -30,7 +30,7 @@ module.exports = function (app) {
     extended: false
   }))
   app.use(cookieParser())
-  app.use('/materialize-css', express.static(__dirname + '/node_modules/materialize/dist/'))  
+  app.use('/materialize-css', express.static(__dirname + '/node_modules/materialize/dist/'))
   app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'))
   app.use(express.static(path.join(__dirname, '../public')))
   app.set('layout', 'layouts/main')
@@ -38,9 +38,6 @@ module.exports = function (app) {
 
   app.use(session({
     secret: "IronERP",
-    cookie: {
-      maxAge: 60000
-    },
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60 // 1 day

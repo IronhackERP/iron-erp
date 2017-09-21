@@ -2,30 +2,51 @@
 <div id="modal-users-new" class="modal">
   <div class="modal-content">
 
-<h1>New User</h1>
-<% if (typeof message != "undefined") { %>
-  <div class="error-message">
-    <%= message %>
-  </div>
-  <% } %>
-    <form action="/users/new" method="POST">
-      <label for="user">User</label>
-      <input type="text" name="user" id="user">
-      <label for="firstName">First Name</label>
-      <input type="text" name="firstName" id="firstName">
-      <label for="lastName">last Name</label>
-      <input type="text" name="lastName" id="lastName">
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email">
-      <select name="rol" id="rol">
-    <option value="admin">Admin</option>
-    <option value="employee">Employee</option>
-  </select>
-      <button class="waves-effect waves-light btn">Create</button>
-      <a class="waves-effect waves-light btn red" href="/users">Cancel</a>
-    </form>
-
+    <h1>New User</h1>
+    <% if (typeof message != "undefined") { %>
+    <div class="error-message">
+      <%= message %>
+    </div>
+    <% } %>
+    <div class='row'>
+      <form action="/users/new" method="POST" class='col s12'>
+        <div class="row">
+          <div class="input-field col s6">
+            <label for="user" data-error="wrong" data-success="right">User</label>
+            <input type="text" name="user" id="user" class="validate">
+          </div>
+          <div class="input-field col s6">
+              <label for="firstName" data-error="wrong" data-success="right">First Name</label>
+            <input type="text" name="firstName" id="firstName" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="lastName" data-error="wrong" data-success="right">Last Name</label>
+            <input type="text" name="lastName" id="lastName" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="password" data-error="wrong" data-success="right">Password</label>
+            <input type="password" name="password" id="password" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+            <input type="email" name="email" id="email" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for='rol' data-error="wrong" data-success="right">Rol</label>
+            <select name="rol" id="rol">
+              <option value="" disabled selected></option>
+              <option value="admin">Admin</option>
+              <option value="employee">Employee</option>
+            </select>
+          </div>
+          <button class="waves-effect waves-light btn" type='submit'>
+            Create
+            <i class="material-icons right">send</i>
+          </button>
+          <a class="waves-effect waves-light btn red" href="/users">Cancel</a>
+        </div>
+      </form>
+    </div>
+<!-- wraper modal -->
   </div>
 </div>

@@ -1,4 +1,6 @@
 $(document).ready(function(){
-     $('#modal-suppliers-new').modal( );
-      $('#modal-users-new').modal( );
+  Materialize.updateTextFields();
+  $('select').material_select();
+  $('#modal-suppliers-new').modal( );
+  $('#modal-users-new').modal( );
   });
