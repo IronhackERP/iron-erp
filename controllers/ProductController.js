@@ -6,7 +6,6 @@ module.exports = {
   allProducts: (req, res, next) => {
     Product.find({}).populate('supplier')
       .then(products => {
-        console.log(products)
         res.render('products/show', {
           title: 'Products list',
           products
@@ -70,12 +69,26 @@ module.exports = {
       }).catch(err => next(err))
   },
   postEdit: (req, res, next) => {
-    const product = {
-      name: req.body.name,
-      price: parseFloat(req.body.price).toFixed(2),
-      description: req.body.description,
-      supplier: [req.body.supplier]
-    }
+    Product.find({})
+      .then(products => {
+        const product = {
+          name: req.body.name,
+          price: parseFloat(req.body.price).toFixed(2),
+          description: req.body.description,
+        }
+        Product.findByIdAndUpdate({
+            _id: req.params.id
+          }, {
+            $set: {
+              'name': product.name,
+              'price': product.price,
+              'description': product.description
+            }
+          })
+          .then((updatedProduct, products)=> {
+            res.redirect('/products')
+          })
+      })
   },
   delete: (req, res, next) => {
     const prodID = req.params.id
