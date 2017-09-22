@@ -18,11 +18,11 @@
   <tbody>
     <% users.forEach(user => { %>
       <tr>
-        <td class='userName' data-user-name="<%= user.username %>"><%= user.username %></td>
-        <td class= 'userFirstName' data-user-firsName="<%= user.firstName %>"><%= user.firstName %></td>
-        <td class= 'userLastName' data-user-lastName="<%= user.lastName %>"><%= user.lastName %></td>
-        <td class= 'userEmail' data-user-email="<%= user.email %>"><%= user.email %></td>
-        <td><%= user.rol %></td>
+        <td class='user-name' data-user-name="<%= user.username %>"><%= user.username %></td>
+        <td class= 'first-name' data-first-name="<%= user.firstName %>"><%= user.firstName %></td>
+        <td class= 'last-name' data-last-name="<%= user.lastName %>"><%= user.lastName %></td>
+        <td class= 'user-email' data-user-email="<%= user.email %>"><%= user.email %></td>
+        <td class= 'user-rol' data-user-rol="<%= user.rol %>"><%= user.rol %></td>
 
         <!-- <td><a class="waves-effect waves-light btn" href="/users/<%= user._id%>/edit">Edit</a></td> -->
 
