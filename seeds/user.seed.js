@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/iron-erp', {useMongoClient: true})
+require('dotenv').config()
+mongoose.connect(process.env.MONGO_URI)
+
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const bcryptSalt = 10

@@ -17,7 +17,6 @@ module.exports = function (app) {
   if (process.env.NODE_ENV === 'development') {
     require('dotenv').config()
   }
-
   mongoose.Promise = global.Promise
   mongoose.connect(process.env.MONGO_URI)
     .then('Connected to DB')
@@ -30,17 +29,12 @@ module.exports = function (app) {
     extended: false
   }))
   app.use(cookieParser())
-  app.use('/materialize-css', express.static(__dirname + '/node_modules/materialize/dist/'))  
-  app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'))
   app.use(express.static(path.join(__dirname, '../public')))
   app.set('layout', 'layouts/main')
   app.use(expressLayout)
 
   app.use(session({
     secret: "IronERP",
-    cookie: {
-      maxAge: 60000
-    },
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60 // 1 day
