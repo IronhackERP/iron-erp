@@ -1,0 +1,25 @@
+<!-- Modal Structure -->
+<div id="modal-suppliers-new" class="modal">
+  <div class="modal-content">
+
+    <h1>New Supplier</h1>
+    <% if (typeof message != "undefined") { %>
+      <div class="error-message"><%= message %></div>
+    <% } %>
+    <form action="/suppliers/new" method="POST">
+      <label for="supplier">User</label>
+      <input type="text" name="supplier" id="supplier">
+      <label for="company">Company</label>
+      <input type="text" name="companyName" id="companyName">
+      <label for="phone">PhoneNumber</label>
+      <input type="tel" name="phoneNumber" id="phoneNumber">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email">
+      <div class="modal-footer">
+      <button class="modal-action modal-close waves-effect waves-green btn-flat">CREATE</a>
+      <a href="/suppliers" class="modal-action modal-close waves-effect waves-red btn-flat ">CANCEL</a>
+      </div>
+    </form>
+
+  </div>
+</div>
