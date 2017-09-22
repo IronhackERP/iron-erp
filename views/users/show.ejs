@@ -18,16 +18,16 @@
   <tbody>
     <% users.forEach(user => { %>
       <tr>
-        <td><%= user.username %></td>
-        <td><%= user.firstName %></td>
-        <td><%= user.lastName %></td>
-        <td><%= user.email %></td>
+        <td class='userName' data-user-name="<%= user.username %>"><%= user.username %></td>
+        <td class= 'userFirstName' data-user-firsName="<%= user.firstName %>"><%= user.firstName %></td>
+        <td class= 'userLastName' data-user-lastName="<%= user.lastName %>"><%= user.lastName %></td>
+        <td class= 'userEmail' data-user-email="<%= user.email %>"><%= user.email %></td>
         <td><%= user.rol %></td>
 
         <!-- <td><a class="waves-effect waves-light btn" href="/users/<%= user._id%>/edit">Edit</a></td> -->
 
         <!-- Modal Trigger -->
-        <td><button data-target="modal-users-edit" class="btn modal-trigger">Edit</button></td>
+        <td><button data-target="modal-users-edit" class="btn modal-trigger edit-button" data-user-id="<%= user._id %>" >Edit</button></td>
         <td><a class="waves-effect waves-light btn red" href="/users/<%= user._id%>/delete">Delete</a></td>
       </tr>
       <% }) %>
