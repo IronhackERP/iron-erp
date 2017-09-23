@@ -25,21 +25,21 @@ $(document).ready(function() {
     }
     console.log("El objeto a editar es: ");
     console.log(selectedUser);
+    console.log(selectedUser.rol);
 
     setDataFormModal(selectedUser);
   })
 });
-
+//$('#rol-modal-edit> option[value="admin"]').attr('selected', 'selected');
 function setDataFormModal(selectedUser) {
   $('#user-modal-edit').val(selectedUser.username);
   $('#first-name-modal-edit').val(selectedUser.firstName);
   $('#last-name-modal-edit').val(selectedUser.lastName);
   $('#email-modal-edit').val(selectedUser.email);
   if ((selectedUser.rol) === 'admin') {
-    console.log(selectedUser.rol);
-    $('#rol-option-admin').prop('selected', true);
+    $('#rol-modal-edit> option[value="admin"]').attr('selected', 'selected');
   }
-  if ((obj.rol) === 'employee') {
-    $('#rol-option-employee').prop('selected', true);
+  if ((selectedUser.rol) === 'employee') {
+    $('#rol-modal-edit> option[value="employee"]').attr('selected', 'selected');
   }
 }
