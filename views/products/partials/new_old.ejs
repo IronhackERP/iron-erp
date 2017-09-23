@@ -25,7 +25,9 @@
             </div>
             <div class="input-field col s6">
               <select name="supplierID" id="supplier">
-
+                <% suppliers.forEach(supplier => { %>
+                <option value="<%= supplier.id %>"><%= supplier.name %></option>
+                <% }) %>
               </select>
             </div>
             <div class="modal-footer">

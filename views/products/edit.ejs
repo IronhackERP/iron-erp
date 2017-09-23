@@ -6,13 +6,13 @@
 <% } %>
 <form action="/products/<%= selectedProduct.id %>/edit" method="POST">
   <label for="name">Name</label>
-  <input type="text" name="name" id="name" value="<%= selectedProduct.name %>">
+  <input type="text" name="name" id="name" >
   <label for="Price">Price</label>
-  <input type="text" name="price" id="price" placeholder="$0.00" value="<%= selectedProduct.price %>">
+  <input type="text" name="price" id="price" placeholder="$0.00" >
   <label for="description">Description</label>
-  <input type="text" name="description" id="description" value="<%= selectedProduct.description %>">
+  <input type="text" name="description" id="description" >
   <label for="supplier">Supplier</label>
-  <input disabled type="text" name="supplier" id="supplier" value="<%= selectedProduct.supplier[0].name %>">
+  <input disabled type="text" name="supplier" id="supplier" >
   <button class="waves-effect waves-light btn blue-grey">Update</button>
   <a class="waves-effect waves-light btn red" href="/products">Cancel</a>
 </form>
