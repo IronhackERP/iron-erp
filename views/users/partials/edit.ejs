@@ -12,23 +12,24 @@
       <form action="/users/edit" method="POST" class='col s12'>
         <div class='row'>
           <div class="input-field col s12">
-            <label class='label-modal-edit' for="user" data-error="wrong" data-success="right">User</label>
+            <label for="user" data-error="wrong" data-success="right">User</label>
             <input type="text" name="user" id="user-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label class='label-modal-edit' visibility='hidden' for="first-name" data-error="wrong" data-success="right">First Name</label>
+            <label for="first-name" data-error="wrong" data-success="right">First Name</label>
             <input type="text" name="first-name" id="first-name-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label class='label-modal-edit' for="last-name" data-error="wrong" data-success="right">Last Name</label>
+            <label for="last-name" data-error="wrong" data-success="right">Last Name</label>
             <input type="text" name="last-name" id="last-name-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label class='label-modal-edit' for="email" data-error="wrong" data-success="right">Email</label>
+            <label for="email" data-error="wrong" data-success="right">Email</label>
             <input type="email" name="email" id="email-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <select name="rol" id="rol-modal-edit-user" class="validate" required>
+            <label for="rol" class="active" data-error="wrong" data-success="right">Rol</label>
+            <select name="rol" id="rol-modal-edit-user" required>
               <option value="admin" >Admin</option>
               <option value="employee">Employee</option>
             </select>

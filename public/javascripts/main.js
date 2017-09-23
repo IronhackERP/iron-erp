@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //Materialize.updateTextFields();
+  Materialize.updateTextFields();
   $('select').material_select();
 
   $('#modal-suppliers-new').modal();
@@ -29,4 +29,5 @@ function setDataUserFormModal(selectedUser) {
   $('#email-modal-edit').val(selectedUser.email);
   $(`select#rol-modal-edit-user > option[value=${selectedUser.rol}]`).attr('selected','selected');
   $('select#rol-modal-edit-user').material_select();
+  Materialize.updateTextFields();
 }
