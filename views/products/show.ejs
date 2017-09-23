@@ -1,5 +1,7 @@
 <h2>List of products</h2>
-<a class="waves-effect waves-light btn blue-grey" href="/products/new">New product</a>
+<!-- Modal Trigger -->
+<button data-target="modal-products-new" class="waves-effect waves-light blue-grey btn modal-trigger">New User</button>
+<!-- <a class="waves-effect waves-light btn blue-grey" href="/products/new">New product</a> -->
 <a class="waves-effect waves-light btn blue-grey" href="/dashboard">Back to dashboard</a>
 <hr>
 <table>
@@ -22,5 +24,7 @@
         <td><a class="waves-effect waves-light btn red" href="/products/<%= product._id%>/delete">Delete</a></td>
       </tr>
       <% }) %>
+
   </tbody>
 </table>
+<%- include("partials/new.ejs") %>
