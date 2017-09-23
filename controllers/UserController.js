@@ -42,7 +42,7 @@ module.exports = {
         })
         .save()
         .then(user => res.redirect("/users"))
-        .catch(err => console.log("error"))
+        .catch(err => next("error"))
     })
   },
   get_edit: (req, res, next) => {

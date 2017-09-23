@@ -11,5 +11,11 @@ module.exports = {
   newClient: (req, res, next) => {},
   getEditClient: (req, res, next) => {},
   postEditClient: (req, res, next) => {},
-  deleteClient: (req, res, next) => {}
+  deleteClient: (req, res, next) => {
+    const clientID = req.params.id
+
+    Client.findByIdAndRemove(clientID)
+      .then(() => res.redirect('/clients'))
+      .catch(err => next(err))
+  }
 }

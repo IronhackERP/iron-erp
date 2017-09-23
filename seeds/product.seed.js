@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to DB!'))
-  .catch(err => console.log(`ERROR: ${err}`))
+  .catch(err => next(err))
 
 const Supplier = require('../models/Supplier')
 const Product = require('../models/Product')
@@ -49,7 +49,7 @@ Supplier.create(supplier)
     products.forEach(product => {
         Product.create(product)
       })
-      .catch(err => console.log(`ERROR PRODUCTS: ${err}`))
+      .catch(err => next(err))
   })
   .then(() => mongoose.connection.close())
-  .catch(err => console.log(`ERROR supplier: ${err}`))
+  .catch(err => next(err))

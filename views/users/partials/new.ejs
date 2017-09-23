@@ -9,7 +9,7 @@
   </div>
   <% } %>
 
-<form action="new" method="POST">
+<form action="/users/new" method="POST">
   <label for="user">User</label>
   <input type="text" name="user" id="user">
   <label for="firstName">First Name</label>
@@ -24,6 +24,6 @@
     <option value="admin">Admin</option>
     <option value="employee">Employee</option>
   </select>
-  <button class="waves-effect waves-light btn">Create</button>
+  <button class="waves-effect waves-light btn blue-grey">Create</button>
   <a class="waves-effect waves-light btn red" href="/users">Cancel</a>
 </form>

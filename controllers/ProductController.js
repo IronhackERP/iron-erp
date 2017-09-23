@@ -6,10 +6,10 @@ module.exports = {
   allProducts: (req, res, next) => {
     Product.find({}).populate('supplier')
       .then(products => {
-        res.render('products/show', {
-          title: 'Products list',
-          products
-        })
+          res.render('products/show', {
+            title: 'Products list',
+            products
+          })
       })
       .catch(err => next(err))
   },
@@ -29,7 +29,6 @@ module.exports = {
       const price = parseFloat(req.body.price).toFixed(2)
       const description = req.body.description
       const supplier = [req.body.supplierID]
-      console.log(req.body)
       if (name === '' && price === '' && description === '' && supplier === '') {
         res.render('products/new', {
           message: 'Inputs can\'t be empty',

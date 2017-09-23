@@ -4,7 +4,7 @@ module.exports = (app) => {
   const userRoutes = require('../routes/user')
   const dashboardRoute = require('../routes/dashboard')
   const productRouter = require('../routes/product')
-  const supplierRouter = require('./routes/suppliers')
+  const supplierRouter = require('../routes/supplier')
   const clientRouter = require('../routes/client')
 
   app.use(indexRoute)

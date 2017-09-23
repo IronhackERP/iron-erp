@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+.red{
+  background-color: #E53935 !important;
+}

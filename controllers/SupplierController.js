@@ -53,10 +53,7 @@ module.exports = {
         })
         .save()
         .then(supplier => res.redirect("/suppliers"))
-        .catch((err) => {
-          console.log(err)
-
-        })
+        .catch((err) => next(err))
     })
   },
 
@@ -78,19 +75,15 @@ module.exports = {
 
    Supplier.findByIdAndUpdate(req.params.id, supplier)
    .then(supplier => res.redirect('/suppliers'))
-   .catch(err => console.log(err))
+   .catch(err => next(err))
  },
 
  delete: (req, res, next) => {
     const supplierID = req.params.id
-    console.log(supplierID)
 
-    Supplier.findByIdAndRemove(supplierID, (err, supplier) => {
-      if (err) {
-        return next(err);
-      }
-      return res.redirect('/suppliers');
-    })
+    Supplier.findByIdAndRemove(supplierID)
+      .then(() => res.redirect('/suppliers'))
+      .catch(err => next(err))
   }
 
 }

@@ -9,7 +9,7 @@ module.exports = {
     .then(users => {
       res.render('users/show', {title: 'List of users', users})
     })
-    .catch(err => console.log('ERROR'))
+    .catch(err => next(err))
   },
   login: passport.authenticate('local', {
     successRedirect: '/dashboard',
