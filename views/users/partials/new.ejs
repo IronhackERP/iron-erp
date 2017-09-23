@@ -4,9 +4,7 @@
 
     <h1>New User</h1>
     <% if (typeof message != "undefined") { %>
-    <div class="error-message">
-      <%= message %>
-    </div>
+    <div class="error-message"><%= message %></div>
     <% } %>
     <div class='row'>
       <form action="/users/new" method="POST" class='col s12'>
