@@ -1,8 +1,8 @@
 <h1>List of users</h1>
 <!-- Modal Trigger -->
-<button data-target="modal-users-new" class="waves-effect waves-light blue-grey btn modal-trigger">New User</button>
-
+<!-- <button data-target="modal-users-new" class="waves-effect waves-light blue-grey btn modal-trigger">New User</button> -->
 <a class="waves-effect waves-light btn blue-grey" href="/dashboard">Back to dashboard</a>
+<a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href='#modal-users-new'><i class="material-icons">add</i></a>
 <hr>
 <table>
   <thead>
@@ -23,16 +23,13 @@
         <td class= 'user-email' data-user-email="<%= user.email %>"><%= user.email %></td>
         <td class= 'user-rol' data-user-rol="<%= user.rol %>"><%= user.rol %></td>
 
-        <!-- <td><a class="waves-effect waves-light btn" href="/users/<%= user._id%>/edit">Edit</a></td> -->
-
         <!-- Modal Trigger -->
         <td><button data-target="modal-users-edit" class="btn blue-grey modal-trigger edit-button-user" data-user-id="<%= user._id %>" >Edit</button></td>
         <td><a class="waves-effect waves-light btn red" href="/users/<%= user._id%>/delete">Delete</a></td>
       </tr>
-      <% }) %>
-
-<%- include("partials/edit.ejs") %>
-
+    <% }) %>
   </tbody>
 </table>
+<!-- Modals Includes-->
 <%- include("partials/new.ejs") %>
+<%- include("partials/edit.ejs") %>

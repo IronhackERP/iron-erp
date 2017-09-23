@@ -18,11 +18,11 @@ $(document).ready(function() {
       email: $(this).parent().parent().children('.user-email').data('user-email'),
       rol: $(this).parent().parent().children('.user-rol').data('user-rol'),
     }
-    setDataUserFormModal(selectedUser);
+    setDataUserFormEdit(selectedUser);
   })
 });
 
-function setDataUserFormModal(selectedUser) {
+function setDataUserFormEdit(selectedUser) {
   $('#user-modal-edit').val(selectedUser.username);
   $('#first-name-modal-edit').val(selectedUser.firstName);
   $('#last-name-modal-edit').val(selectedUser.lastName);
