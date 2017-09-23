@@ -1,8 +1,9 @@
 <h1>List of Suppliers</h1>
 <!-- Modal Trigger -->
-<button data-target="modal-suppliers-new" class="waves-effect waves-light btn blue-grey modal-trigger">New supplier</button>
+<!-- <button data-target="modal-suppliers-new" class="waves-effect waves-light btn blue-grey modal-trigger">New supplier</button> -->
 
 <a class="waves-effect waves-light btn blue-grey" href="/dashboard">Back to dashboard</a>
+<a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href='#modal-suppliers-new'><i class="material-icons">add</i></a>
 
 <hr>
 <table>
@@ -27,4 +28,5 @@
       <% }) %>
   </tbody>
 </table>
+<!-- Modals Includes-->
 <%- include("partials/new.ejs") %>
