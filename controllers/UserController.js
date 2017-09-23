@@ -42,7 +42,7 @@ module.exports = {
         })
         .save()
         .then(user => res.redirect("/users"))
-        .catch(err => console.log("error"))
+        .catch(err => next("error"))
     })
   },
   get_edit: (req, res, next) => {
@@ -62,11 +62,10 @@ module.exports = {
     }
     User.findByIdAndUpdate(req.params.id, user)
     .then(user => res.redirect('/users'))
-    .catch(err => console.log(err))
+    .catch(err => next(err))
   },
   delete: (req, res, next) => {
     const userID = req.params.id
-    console.log(userID)
 
     User.findByIdAndRemove(userID, (err, user) => {
       if (err) {
