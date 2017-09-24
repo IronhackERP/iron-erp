@@ -1,0 +1,41 @@
+<!-- Modal Structure -->
+<div id="modal-suppliers-new" class="modal">
+  <div class="modal-content">
+
+    <h1>New Supplier</h1>
+    <% if (typeof message != "undefined") { %>
+      <div class="error-message"><%= message %></div>
+    <% } %>
+
+    <div class='row'>
+      <form action="/suppliers/new" method="POST" class='col s12'>
+        <div class="row">
+          <div class="input-field col s6">
+            <label for="supplier" data-error="wrong" data-success="right">User</label>
+            <input type="text" name="supplier" id="supplier" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="company">Company</label>
+            <input type="text" name="companyName" id="companyName" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="phone">PhoneNumber</label>
+            <input type="tel" name="phoneNumber" id="phoneNumber" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="validate">
+          </div>
+          <div class="modal-footer">
+            <button class="waves-effect waves-light btn blue-grey" type='submit'>
+              CREATE
+              <i class="material-icons right">send</i>
+            </button>
+            <a href="/suppliers" class="waves-effect waves-light btn red">CANCEL</a>
+          </div>
+        </div>
+      </form>
+    </div>
+<!-- wraper modal -->
+  </div>
+</div>

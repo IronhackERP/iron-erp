@@ -1,0 +1,51 @@
+<!-- Modal Structure -->
+<div id="modal-users-new" class="modal">
+  <div class="modal-content">
+
+    <h1>New User</h1>
+    <% if (typeof message != "undefined") { %>
+    <div class="error-message"><%= message %></div>
+    <% } %>
+    <div class='row'>
+      <form action="/users/new" method="POST" class='col s12'>
+        <div class="row">
+          <div class="input-field col s6">
+            <label for="user" data-error="wrong" data-success="right">User</label>
+            <input type="text" name="user" id="user" class="validate">
+          </div>
+          <div class="input-field col s6">
+              <label for="firstName" data-error="wrong" data-success="right">First Name</label>
+            <input type="text" name="firstName" id="firstName" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="lastName" data-error="wrong" data-success="right">Last Name</label>
+            <input type="text" name="lastName" id="lastName" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="password" data-error="wrong" data-success="right">Password</label>
+            <input type="password" name="password" id="password" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+            <input type="email" name="email" id="email" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <select name="rol" id="rol" class="validate">
+              <option value="" disabled selected></option>
+              <option value="admin">Admin</option>
+              <option value="employee">Employee</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button class="waves-effect waves-light btn blue-grey" type='submit'>
+              CREATE
+              <i class="material-icons right">send</i>
+            </button>
+            <a class="waves-effect waves-light btn red" href="/users">CANCEL</a>
+          </div>
+        </div>
+      </form>
+    </div>
+<!-- wraper modal -->
+  </div>
+</div>

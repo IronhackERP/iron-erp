@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font: 14px 'Roboto', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.red{
+  background-color: #E53935 !important;
+}
+.modal-footer
+{
+  margin: 0 auto;
+}
