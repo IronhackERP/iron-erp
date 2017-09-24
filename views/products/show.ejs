@@ -1,8 +1,6 @@
 <h2>List of products</h2>
-<!-- Modal Trigger -->
-<!-- <button data-target="modal-products-new" class="waves-effect waves-light blue-grey btn modal-trigger">New User</button> -->
+<a class="waves-effect waves-light btn blue-grey" href="/products/new">New product</a>
 <a class="waves-effect waves-light btn blue-grey" href="/dashboard">Back to dashboard</a>
-<a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger add-button-product" href='#modal-products-new'><i class="material-icons">add</i></a>
 <hr>
 <table>
   <thead>
@@ -15,18 +13,14 @@
   </thead>
   <tbody>
     <% products.forEach(product => { %>
-      <tr class='product-id' data-user-id="<%= product._id %>">
-        <td class='product-name' data-product-name="<%= product.username %>"><%= product.name %></td>
-        <td class='product-price' data-product-price="<%= product.price %>"><%= product.price %>€</td>
-        <td class='product-description' data-product-description="<%= product.description %>"><%= product.description %></td>
-        <td class='product-supplier-name' data-product-supplier-name="<%= product.supplier[0].name %>"><%= product.supplier[0].name %></td>
-
-        <!-- Modal Trigger -->
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %>€</td>
+        <td><%= product.description %></td>
+        <td><%= product.supplier[0].name %></td>
         <td><a class="waves-effect waves-light btn blue-grey" href="/products/<%= product._id%>/edit">Update</a></td>
         <td><a class="waves-effect waves-light btn red" href="/products/<%= product._id%>/delete">Delete</a></td>
       </tr>
-    <% }) %>
+      <% }) %>
   </tbody>
 </table>
-<!-- Modals Includes-->
-<%- include("partials/new.ejs") %>

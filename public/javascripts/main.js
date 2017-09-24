@@ -19,36 +19,12 @@ $(document).ready(function() {
     }
     setDataUserFormEdit(selectedUser);
   })
-
-//EN PROCESO-->
-  $('.add-button-product').click(function(e) {
-    e.preventDefault()
-    //objeto suppliers de show suppliers
-    const suppliers = $('tbody#suppliers-all').attr('data-suppliers-all')
-    console.log('estos son los suppliers:')
-    console.log(suppliers) //==> undefined ???
-    setDataFormNewProduct(suppliers);
-  })
-
 });
 
-//EN PROCESO-->
-function setDataFormNewProduct(suppliers) {
-  //en select del formulario new product, añadir opcciones por cada supplier
-  suppliers.forEach(supplier => {
-    const option = $('<option>').text(supplier.name.toUpperCase()).attr('value', supplier.name)
-    $('select.new-product-supplier').append(option)
-    $('select.new-product-supplier').material_select();
-    Materialize.updateTextFields();
-  })
-}
-
-
+  //CORRECTO--->
 function setDataUserFormEdit(selectedUser) {
   $('#title-modal-edit').text(`Edit User ${selectedUser.username}`);
-    $('#id-modal-edit').attr('prueba',`hola`);
   $('#id-modal-edit').attr('action',`/users/${selectedUser.id}/edit`);
-  //CORRECTO--->
   $('#user-modal-edit').val(selectedUser.username);
   $('#first-name-modal-edit').val(selectedUser.firstName);
   $('#last-name-modal-edit').val(selectedUser.lastName);

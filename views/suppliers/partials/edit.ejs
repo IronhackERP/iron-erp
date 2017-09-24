@@ -1,0 +1,43 @@
+<!-- Modal Structure -->
+<div id="modal-suppliers-edit" class="modal">
+  <div class="modal-content">
+
+    <h1>Edit Supplier</h1>
+    <% if (typeof message != "undefined") { %>
+      <div class="error-message">
+        <%= message %>
+      </div>
+    <% } %>
+      <div class='row'>
+        <form action="/suppliers/<%= selectedSupplier.id %>/edit" method="POST">
+          <div class='row'>
+            <div class="input-field col s6">
+              <label for="supplier">Supplier</label>
+              <input type="text" name="supplier" id="supplier" value="<%= selectedSupplier.name %>">
+            </div>
+            <div class="input-field col s6">
+              <label for="companyName">Company</label>
+              <input type="text" name="companyName" id="companyName" value="<%= selectedSupplier.companyName %>">
+            </div>
+            <div class="input-field col s6">
+              <label for="phoneNumber">PhoneNumber</label>
+              <input type="tel" name="phoneNumber" id="phoneNumber" value="<%= selectedSupplier.phoneNumber %>">
+            </div>
+            <div class="input-field col s6">
+              <label for="email">Email</label >
+              <input type="email" name="email" id="email" value="<%= selectedSupplier.email %>">
+            </div>
+            <div class="modal-footer">
+              <button class="waves-effect waves-light btn blue-grey"type='submit'>
+                Update
+                <i class="material-icons right">send</i>
+              </button>
+              <a class="waves-effect waves-light red btn" href="/suppliers">CANCEL</a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+<!-- wraper modal -->
+    </div>
+</div>
