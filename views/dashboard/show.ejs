@@ -1,8 +1,50 @@
 <% if (typeof message != "undefined") { %>
   <div class="error-message"><%= message %></div>
 <% } %>
-<a href="/users">Show Users</a> |
-<a href="/products">Show Products</a> |
-<a href="/suppliers">Show Suppliers</a> | 
-<a href="/clients">Show Clients</a> |
-<a href="/logout">Logout</a>
+
+<div class="row dashboard-cards">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1 hoverable">
+        <div class="card-content text-white">
+          <span class="card-title">Users</span>
+          <p>Users management</p>
+        </div>
+        <div class="card-action">
+          <a href="/users">Manage users</a>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6">
+        <div class="card blue-grey darken-1 hoverable">
+          <div class="card-content text-white">
+            <span class="card-title">Suppliers</span>
+            <p>Suppliers management</p>
+          </div>
+          <div class="card-action">
+            <a href="/suppliers">Manage suppliers</a>
+          </div>
+        </div>
+      </div>
+    <div class="col s12 m6">
+        <div class="card blue-grey darken-1 hoverable">
+          <div class="card-content text-white">
+            <span class="card-title">Products</span>
+            <p>Products management</p>
+          </div>
+          <div class="card-action">
+            <a href="/products">Manage products</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+          <div class="card blue-grey darken-1 hoverable">
+            <div class="card-content text-white">
+              <span class="card-title">Clients</span>
+              <p>Clients management</p>
+            </div>
+            <div class="card-action">
+              <a href="/clients">Manage clients</a>
+            </div>
+          </div>
+        </div>
+  </div>

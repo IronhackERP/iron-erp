@@ -11,6 +11,18 @@ a {
   background-color: #E53935 !important;
 }
 
+.blue {
+  background-color: #2196F3 !important;
+}
+
+.white-text{
+  color: #000 !important;
+}
+
+.text-white {
+  color: #fff;
+}
+
 .modal-footer {
   margin: 0 auto;
 }
@@ -18,4 +30,40 @@ a {
 hr {
   height: 5px;
   background-color: #607d8b;
+}
+
+.input-field input[type=text] {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field input[type=password] {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field input[type=tel] {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field input[type=email] {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.dashboard-cards {
+  margin-top: 50px;
+}
+
+.header-title-login{
+  padding-bottom: 50px;
+}
+
+.login-container {
+  margin: 75px;
+}
+
+.btn-margin{
+  margin: 0 20px;
 }

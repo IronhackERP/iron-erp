@@ -4,18 +4,33 @@
     <%= message %>
   </div>
 <% } %>
-<form action="/products/new" method="POST">
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name">
-  <label for="Price">Price</label>
-  <input type="text" name="price" id="price" placeholder="$0.00">
-  <label for="description">Description</label>
-  <input type="text" name="description" id="description">
-  <select name="supplierID" id="supplier">
-    <% suppliers.forEach(supplier => { %>
-      <option value="<%= supplier.id %>"><%= supplier.name %></option>
-    <% }) %>
-  </select>
-  <button class="waves-effect waves-light btn blue-grey">Create</button>
-  <a class="waves-effect waves-light btn red" href="/products">Cancel</a>
-</form>
+
+<div class="row">
+    <form action="/products/new" method="POST">
+      <div class="row">
+          <div class="input-field col s6">
+              <label class="white-text" for="name">Name</label>
+              <input class="validate" type="text" name="name" id="name" required>
+            </div>
+            <div class="input-field col s6">
+              <label class="white-text" for="Price">Price</label>
+              <input class="validate" type="text" name="price" id="price" required>
+            </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+              <label class="white-text" for="description">Description</label>
+              <input class="validate" type="text" name="description" id="description" required>
+            </div>
+            <div class="input-field col s12">
+              <select name="supplierID" id="supplier">
+                    <% suppliers.forEach(supplier => { %>
+                      <option value="<%= supplier.id %>"><%= supplier.name %></option>
+                    <% }) %>
+                  </select>
+            </div>
+      </div>
+      <a class="btn-margin waves-effect waves-light btn red right" href="/products">Cancel</a>
+      <button class="btn-margin waves-effect waves-light btn blue-grey right">Create</button>      
+    </form>
+</div>
