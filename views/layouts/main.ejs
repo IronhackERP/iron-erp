@@ -9,13 +9,30 @@
   <link rel="stylesheet" href="/stylesheets/select2.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
 </head>
 
 <body>
     <% if(user !== undefined) { %>
-      <nav class="blue-grey">
-          <%= user.username %>
-        </nav>
+      <nav>
+        <div class="nav-wrapper  blue">
+          <a href="#" class="brand-logo center">Client Management</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <a class='dropdown-button blue' href='#' data-activates='logout-dropdown'>Options</a>            
+          </ul>
+
+          <ul id='logout-dropdown' class='dropdown-content'>
+              <li><a href="#" class="blue-text">User: <%= user.username %></a></li>
+              <li><a href="/logout" class="blue-text">Logout</a></li>
+            </ul>
+        </div>
+      </nav>
+    <% } else { %>
+      <nav>
+          <div class="nav-wrapper  blue">
+            <a href="#" class="brand-logo center">Client Management</a>
+          </div>
+        </nav>  
     <% } %>
   <div class="container">
       <%- body %>
