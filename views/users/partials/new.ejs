@@ -3,15 +3,11 @@
   <div class="modal-content">
 
     <h1>New User</h1>
-<<<<<<< HEAD
     <% if (typeof message !== "undefined") { %>
     <div class="error-message">
       <%= message %>
     </div>
-=======
-    <% if (typeof message != "undefined") { %>
-    <div class="error-message"><%= message %></div>
->>>>>>> 96255492911f578d30b49d1bee34554444fabd6a
+
     <% } %>
     <div class='row'>
       <form action="/users/new" method="POST" class='col s12'>

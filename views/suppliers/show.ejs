@@ -24,17 +24,12 @@
         <td class='supplier-email' data-supplier-email="<%= supplier.email %>"><%= supplier.email %></td>
         <!-- Modal Trigger -->
         <!-- <td><button data-target="modal-users-edit" class="btn blue-grey modal-trigger edit-button-user" data-user-id="<%= user._id %>" >Edit</button></td> -->
-        <td><button data-target="modal-suppliers-edit" class="btn blue-grey modal-trigger edit-button-supplier" data-supplier-id="<%= supplier._id %>" >Edit</button></td>
-        <!-- <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td> -->
+        <!-- <td><button data-target="modal-suppliers-edit" class="btn blue-grey modal-trigger edit-button-supplier" data-supplier-id="<%= supplier._id %>" >Edit</button></td> -->
+        <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td>
         <td><a class="waves-effect waves-light btn red" href="/suppliers/<%= supplier._id%>/delete">Delete</a></td>
       </tr>
       <% }) %>
   </tbody>
 </table>
-<<<<<<< HEAD
 <%- include("partials/new.ejs") %>
-=======
-<!-- Modals Includes-->
-<%- include("partials/new.ejs") %>
-<%- include("partials/edit.ejs") %>
->>>>>>> 96255492911f578d30b49d1bee34554444fabd6a
+

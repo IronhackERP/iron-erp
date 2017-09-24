@@ -1,34 +1,18 @@
-<h2>New Product</h2>
-<% if (typeof message != "undefined") { %>
+<h2>Edit product <%= selectedProduct.name%></h2>
+<% if (typeof message != undefined) { %>
   <div class="error-message">
     <%= message %>
   </div>
 <% } %>
-  <div class='row'>
-    <form action="/products/new" method="POST">
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="name">Name</label>
-          <input type="text" name="name" id="name">
-        </div>
-        <div class="input-field col s6">
-          <label for="Price">Price</label>
-          <input type="text" name="price" id="price" placeholder="$0.00">
-        </div>
-        <div class="input-field col s6">
-          <label for="description">Description</label>
-          <input type="text" name="description" id="description">
-        </div>
-        <div class="input-field col s6">
-          <label for="supplierID" class='active'>Supplier</label>
-          <select name="supplierID" class="new-product-supplier">
-
-            </select>
-        </div>
-        <div class="modal-footer">
-          <button class="waves-effect waves-light btn blue-grey">Create</button>
-          <a class="waves-effect waves-light btn red" href="/products">Cancel</a>
-        </div>
-      </div>
-    </form>
-  </div>
+<form action="/products/<%= selectedProduct.id %>/edit" method="POST">
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" value="<%= selectedProduct.name %>">
+  <label for="Price">Price</label>
+  <input type="text" name="price" id="price" placeholder="$0.00" value="<%= selectedProduct.price %>">
+  <label for="description">Description</label>
+  <input type="text" name="description" id="description" value="<%= selectedProduct.description %>">
+  <label for="supplier">Supplier</label>
+  <input disabled type="text" name="supplier" id="supplier" value="<%= selectedProduct.supplier[0].name %>">
+  <button class="waves-effect waves-light btn blue-grey">Update</button>
+  <a class="waves-effect waves-light btn red" href="/products">Cancel</a>
+</form>
