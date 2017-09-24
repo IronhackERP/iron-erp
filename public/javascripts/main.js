@@ -2,8 +2,8 @@ $(document).ready(function() {
   Materialize.updateTextFields();
   $('select').material_select();
   $('#modal-suppliers-new').modal();
+    $('#modal-suppliers-edit').modal();
   $('#modal-users-new').modal();
-  $('#modal-products-new').modal();
   $('#modal-users-edit').modal();
 
   //CORRECTO--->
