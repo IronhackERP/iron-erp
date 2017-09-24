@@ -1,3 +1,29 @@
 <h2>List of clients</h2>
-<a class="waves-effect waves-light btn blue-grey" href="/client/new">New Client</a>
+<a class="waves-effect waves-light btn blue-grey" href="/clients/new">New Client</a>
 <a class="waves-effect waves-light btn blue-grey" href="/dashboard">Back to dashboard</a>
+
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Client Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if(typeof clients !== 'undefined'){ %>      
+      <% clients.forEach( (client) =>{ %>
+          <tr>
+            <td><%= client.firstName %> <%= client.lastName %> </td>
+            <td><%= client.email %></td>
+            <td><%= client.address %></td>
+            <td><%= client.employeeVendor[0].username %></td>
+            <td><a class="waves-effect waves-light btn blue-grey" href="/clients/<%= client._id%>/edit">Update</a></td>
+            <td><a class="waves-effect waves-light btn red" href="/clients/<%= client._id%>/delete">Delete</a></td>
+          </tr>
+        <% }) %>
+      <% } %>
+  </tbody>
+</table>

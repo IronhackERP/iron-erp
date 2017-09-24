@@ -24,9 +24,7 @@ module.exports = {
       username
     }, 'username', (err, user) => {
       if (user !== null) {
-        res.render('users/new', {
-          message: 'The username already exists'
-        })
+        res.redirect('/users')
         return
       }
 
@@ -45,33 +43,22 @@ module.exports = {
         .catch(err => next("error"))
     })
   },
-  get_edit: (req, res, next) => {
-    User.findById(req.params.id, (err, selectedUser) => {
-      if(err) next(err)
-      res.render('users/edit', {selectedUser})
-    })
+  getEdit: (req, res, next) => {
+    User.findById(req.params.id)
+      .then(selectedUser => res.render('users/edit', {selectedUser}))
+      .catch(err => next(err))
   },
-  put: (req, res, next) => {
-    const user = {
-      username: req.body.user,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password,
-      rol: req.body.rol
-    }
-    User.findByIdAndUpdate(req.params.id, user)
-    .then(user => res.redirect('/users'))
+  postEdit: (req, res, next) => {
+    User.findByIdAndUpdate(req.params.id, { $set: {username: req.body.user,
+      firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email } })
+    .then(() => res.redirect('/users'))
     .catch(err => next(err))
   },
   delete: (req, res, next) => {
     const userID = req.params.id
 
-    User.findByIdAndRemove(userID, (err, user) => {
-      if (err) {
-        return next(err);
-      }
-      return res.redirect('/users');
-    })
+    User.findByIdAndRemove(userID)
+      .then(() => res.redirect('/users'))
+      .catch(err => next(err))
   }
 }

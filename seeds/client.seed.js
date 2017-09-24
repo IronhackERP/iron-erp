@@ -40,14 +40,12 @@ const user = [{
 
 Supplier.create(supplier)
 .then(supplier => {
-  console.log(supplier)
   return Product.create(products)
 })
 .then(products => {
-  console.log(products)
   return User.create(user)
 }).then(user => {
-  // console.log([user.id])
+  const userID = user[0]._id
   const client = [{
     firstName: 'Pepe',
     lastName: 'Leches',
@@ -56,7 +54,7 @@ Supplier.create(supplier)
     amount: parseInt(98),
     phoneNumber: parseInt(889955),
     productsList: products._id,
-    employeeVendor: user._id
+    employeeVendor: userID
   }]
   // client[0].productsList = [products._id]
   // client[0].employeeVendor = [user._id]

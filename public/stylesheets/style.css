@@ -7,14 +7,23 @@ a {
   color: #00B7FF;
 }
 
-.red{
+.red {
   background-color: #E53935 !important;
 }
-.modal-footer
-{
+
+.modal-footer {
   margin: 0 auto;
 }
 
-.label-modal-edit{
-visibility : hidden;
+.label-modal-edit {
+  visibility: hidden;
+}
+
+.product-client-list{
+  width: 100%;
+}
+
+hr {
+  height: 5px;
+  background-color: #607d8b;
 }

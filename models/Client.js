@@ -8,7 +8,7 @@ const ClientSchema = new Schema({
   lastName: {type: String, required: true},
   email: {type: String, required: true},
   address: {type: String, required: true },
-  amount: { type: Number, required: true },
+  amount: { type: Number, default: 0 },
   phoneNumber: {type: Number, required: true},
   productsList: [ { type: Schema.Types.ObjectId,  ref: 'Product' } ],
   employeeVendor: [ { type: Schema.Types.ObjectId,  ref: 'User' } ]

@@ -1,0 +1,29 @@
+<h2>Edit client <%= client.firstName %> <%= client.lastName %></h2>
+<% if (typeof message != undefined) { %>
+  <div class="error-message">
+    <%= message %>
+  </div>
+<% } %>
+<form action="/clients/<%= client.id %>/edit" method="POST">
+  <label for="fistName">First Name</label>
+  <input type="text" name="firstName" id="firstName" value="<%= client.firstName %>">
+  <label for="lastName">Last name</label>
+  <input type="text" name="lastName" id="lastName" value="<%= client.lastName %>">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" value="<%= client.email %>">
+  <label for="address">Address</label>
+  <input type="text" name="address" id="address" value="<% client.address %>">
+  <label for="phoneNumber">Phone Number</label>
+  <input type="tel" name="phoneNumber" id="phoneNumber" value="<%= client.phoneNumber%>">
+  <label for="employeeVendor">Vendor</label>
+  <input type="text" name="employeeVendor" id="employeeVendor" value="<%= client.employeeVendor[0].username%>" disabled>
+  <ul class="collection with-header">
+    <h4 class="collection-header">Products List</h4>
+    <% client.productsList.forEach(product => { %>
+      <li class="collection-item" value="<%= product.id %>"><%= product.name %></li>
+    <% })%>
+  </ul>
+
+  <button class="waves-effect waves-light btn blue-grey">Update</button>
+  <a class="waves-effect waves-light btn red" href="/clients">Cancel</a>
+</form>
