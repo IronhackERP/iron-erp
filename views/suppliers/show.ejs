@@ -20,9 +20,11 @@
       <tr>
         <td class='supplier-name' data-supplier-name="<%= supplier.name %>"><%= supplier.name %></td>
         <td class='supplier-company-name' data-supplier-company-name="<%= supplier.companyName %>"><%= supplier.companyName %></td>
-        <td class='supplier-phone-number' data-supplier-phone-number="<%= supplier.phoneNumber %>"<%= supplier.phoneNumber %></td>
+        <td class='supplier-phone-number' data-supplier-phone-number="<%= supplier.phoneNumber %>"><%= supplier.phoneNumber %></td>
         <td class='supplier-email' data-supplier-email="<%= supplier.email %>"><%= supplier.email %></td>
-        <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td>
+        <!-- Modal Trigger -->
+        <td><button data-target="modal-suppliers-edit" class="btn blue-grey modal-trigger edit-button-supplier" data-supplier-id="<%= supplier._id %>" >Edit</button></td>
+        <!-- <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td> -->
         <td><a class="waves-effect waves-light btn red" href="/suppliers/<%= supplier._id%>/delete">Delete</a></td>
       </tr>
       <% }) %>
@@ -30,3 +32,4 @@
 </table>
 <!-- Modals Includes-->
 <%- include("partials/new.ejs") %>
+<%- include("partials/edit.ejs") %>

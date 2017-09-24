@@ -2,30 +2,30 @@
 <div id="modal-users-edit" class="modal">
   <div class="modal-content">
 
-    <h1 id='title-modal-edit'>Edit User</h1>
+    <h1 id='title-modal-edit-user'>Edit User</h1>
     <% if (typeof message != "undefined") { %>
       <div class="error-message">
         <%= message %>
       </div>
     <% } %>
     <div class='row'>
-      <form prueba='' action="/users/:id/edit" id='id-modal-edit' method="POST" class='col s12'>
+      <form action="/users/:id/edit" id='id-modal-edit-user' method="POST" class='col s12'>
         <div class='row'>
           <div class="input-field col s12">
             <label for="user" data-error="wrong" data-success="right">User</label>
             <input type="text" name="user" id="user-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label for="first-name" data-error="wrong" data-success="right">First Name</label>
+            <label for="firstName" data-error="wrong" data-success="right">First Name</label>
             <input type="text" name="firstName" id="first-name-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label for="last-name" data-error="wrong" data-success="right">Last Name</label>
+            <label for="lastName" data-error="wrong" data-success="right">Last Name</label>
             <input type="text" name="lastName" id="last-name-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
             <label for="email" data-error="wrong" data-success="right">Email</label>
-            <input type="email" name="email" id="email-modal-edit" class="validate" required>
+            <input type="email" name="email" id="email-modal-edit-user" class="validate">
           </div>
           <div class="input-field col s6">
             <label for="rol" class="active" data-error="wrong" data-success="right">Rol</label>
