@@ -91,3 +91,7 @@ header{
 .btn-margin{
   margin: 0 20px;
 }
+
+#nav-mobile{
+  margin-right: 40px;
+}
