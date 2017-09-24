@@ -10,11 +10,11 @@ module.exports = {
       })
   },
 
-  get_new: (req, res, next) => {
+  getNew: (req, res, next) => {
     res.render('suppliers/new')
   },
 
-  post_new: (req, res, next) => {
+  postNew: (req, res, next) => {
     const name = req.body.supplier;
     const companyName = req.body.companyName;
     const phoneNumber = req.body.phoneNumber;
@@ -57,14 +57,14 @@ module.exports = {
     })
   },
 
-  get_edit: (req, res, next) => {
+  getEdit: (req, res, next) => {
     Supplier.findById(req.params.id, (err, selectedSupplier) => {
       if(err) next(err)
       res.render('suppliers/edit', {selectedSupplier})
     })
   },
 
-  put: (req, res, next) => {
+  postEdit: (req, res, next) => {
 
    const supplier = {
      name: req.body.supplier,

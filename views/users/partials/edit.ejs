@@ -1,38 +1,33 @@
 <!-- Modal Structure -->
 <div id="modal-users-edit" class="modal">
   <div class="modal-content">
-
-    <h1 id='title-modal-edit-user'>Edit User</h1>
+    <h1>Edit User <%= user.username %></h1>
     <% if (typeof message != "undefined") { %>
       <div class="error-message">
         <%= message %>
       </div>
     <% } %>
     <div class='row'>
-      <form action="/users/:id/edit" id='id-modal-edit-user' method="POST" class='col s12'>
+      <form action="/users/<%= user.id %>/edit" method="POST" class='col s12'>
         <div class='row'>
           <div class="input-field col s12">
-            <label for="user" data-error="wrong" data-success="right">User</label>
-            <input type="text" name="user" id="user-modal-edit" class="validate" required>
+            <label class='label-modal-edit' for="user" data-error="wrong" data-success="right">User</label>
+            <input type="text" name="user" id="user-modal-edit" class="validate" value="<%= user.username %>" required>
           </div>
           <div class="input-field col s6">
-            <label for="firstName" data-error="wrong" data-success="right">First Name</label>
-            <input type="text" name="firstName" id="first-name-modal-edit" class="validate" required>
+            <label class='label-modal-edit' visibility='hidden' for="first-name" data-error="wrong" data-success="right">First Name</label>
+            <input type="text" name="firstName" id="first-name-modal-edit" class="validate" value="<%= user.firstName %>" required>
           </div>
           <div class="input-field col s6">
-            <label for="lastName" data-error="wrong" data-success="right">Last Name</label>
-            <input type="text" name="lastName" id="last-name-modal-edit" class="validate" required>
+            <label class='label-modal-edit' for="last-name" data-error="wrong" data-success="right">Last Name</label>
+            <input type="text" name="lastName" id="last-name-modal-edit" class="validate" value="<%= user.lastName %>" required>
           </div>
           <div class="input-field col s6">
-            <label for="email" data-error="wrong" data-success="right">Email</label>
-            <input type="email" name="email" id="email-modal-edit-user" class="validate">
+            <label class='label-modal-edit' for="email" data-error="wrong" data-success="right">Email</label>
+            <input type="email" name="email" id="email-modal-edit" class="validate" value="<%= user.email %>" required>
           </div>
           <div class="input-field col s6">
-            <label for="rol" class="active" data-error="wrong" data-success="right">Rol</label>
-            <select name="rol" id="rol-modal-edit-user" required>
-              <option value="admin" >Admin</option>
-              <option value="employee">Employee</option>
-            </select>
+            <input type="text" name="rol" id="rol" value="<%= user.rol %>" disabled>
           </div>
           <div class="modal-footer">
             <button class="waves-effect waves-light btn blue-grey" type='submit'>

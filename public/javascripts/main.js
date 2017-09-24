@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+  $('.product-client-list').select2();
+
   Materialize.updateTextFields();
   $('select').material_select();
   $('#modal-suppliers-new').modal();

@@ -58,14 +58,14 @@ module.exports = {
     }).catch(err => next(err))
   },
   getEdit: (req, res, next) => {
-    Product.findById(req.params.id).populate('supplier')
-      .then((selectedProduct) => {
-        res.render('products/edit', {
-          title: 'Edit product',
-          selectedProduct,
-          message: ''
-        })
-      }).catch(err => next(err))
+    Product.findById(req.params.id).populate('supplier', ['name'])
+    .then(selectedProduct => {
+      res.render('products/edit', {
+        title: 'Edit product',
+        selectedProduct,
+        message: ''
+      })
+    }).catch(err => next(err))
   },
   postEdit: (req, res, next) => {
     Product.find({})

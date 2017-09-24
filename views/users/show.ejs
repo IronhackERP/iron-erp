@@ -15,19 +15,21 @@
     </tr>
   </thead>
   <tbody>
-    <% users.forEach(user => { %>
-      <tr>
-        <td class='user-name' data-user-name="<%= user.username %>"><%= user.username %></td>
-        <td class= 'first-name' data-first-name="<%= user.firstName %>"><%= user.firstName %></td>
-        <td class= 'last-name' data-last-name="<%= user.lastName %>"><%= user.lastName %></td>
-        <td class= 'user-email' data-user-email="<%= user.email %>"><%= user.email %></td>
-        <td class= 'user-rol' data-user-rol="<%= user.rol %>"><%= user.rol %></td>
+		<% if( typeof users !== 'undefined') { %>
+			<% users.forEach(user => { %>
+	      <tr>
+	        <td class='user-name' data-user-name="<%= user.username %>"><%= user.username %></td>
+	        <td class= 'first-name' data-first-name="<%= user.firstName %>"><%= user.firstName %></td>
+	        <td class= 'last-name' data-last-name="<%= user.lastName %>"><%= user.lastName %></td>
+	        <td class= 'user-email' data-user-email="<%= user.email %>"><%= user.email %></td>
+	        <td class= 'user-rol' data-user-rol="<%= user.rol %>"><%= user.rol %></td>
 
-        <!-- Modal Trigger -->
-        <td><button data-target="modal-users-edit" class="btn blue-grey modal-trigger edit-button-user" data-user-id="<%= user._id %>" >Edit</button></td>
-        <td><a class="waves-effect waves-light btn red" href="/users/<%= user._id%>/delete">Delete</a></td>
-      </tr>
-    <% }) %>
+	        <!-- Modal Trigger -->
+	        <td><button data-target="modal-users-edit" class="btn blue-grey modal-trigger edit-button-user" data-user-id="<%= user._id %>" >Edit</button></td>
+	        <td><a class="waves-effect waves-light btn red" href="/users/<%= user._id%>/delete">Delete</a></td>
+	      </tr>
+	    <% }) %>
+    <% } %>
   </tbody>
 </table>
 <!-- Modals Includes-->

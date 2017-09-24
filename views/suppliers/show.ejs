@@ -1,6 +1,6 @@
 <h1>List of Suppliers</h1>
 <!-- Modal Trigger -->
-<!-- <button data-target="modal-suppliers-new" class="waves-effect waves-light btn blue-grey modal-trigger">New supplier</button> -->
+<button data-target="modal-suppliers-new" class="waves-effect waves-light btn blue-grey modal-trigger">New supplier</button>
 
 <a class="waves-effect waves-light btn blue-grey" href="/dashboard">Back to dashboard</a>
 <a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href='#modal-suppliers-new'><i class="material-icons">add</i></a>
@@ -24,13 +24,12 @@
         <td class='supplier-email' data-supplier-email="<%= supplier.email %>"><%= supplier.email %></td>
         <!-- Modal Trigger -->
         <!-- <td><button data-target="modal-users-edit" class="btn blue-grey modal-trigger edit-button-user" data-user-id="<%= user._id %>" >Edit</button></td> -->
-        <td><button data-target="modal-suppliers-edit" class="btn blue-grey modal-trigger edit-button-supplier" data-supplier-id="<%= supplier._id %>" >Edit</button></td>
-        <!-- <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td> -->
+        <!-- <td><button data-target="modal-suppliers-edit" class="btn blue-grey modal-trigger edit-button-supplier" data-supplier-id="<%= supplier._id %>" >Edit</button></td> -->
+        <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td>
         <td><a class="waves-effect waves-light btn red" href="/suppliers/<%= supplier._id%>/delete">Delete</a></td>
       </tr>
       <% }) %>
   </tbody>
 </table>
-<!-- Modals Includes-->
 <%- include("partials/new.ejs") %>
-<%- include("partials/edit.ejs") %>
+

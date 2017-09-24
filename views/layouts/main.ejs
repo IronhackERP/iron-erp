@@ -6,17 +6,24 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/select2.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
+    <% if(user !== undefined) { %>
+      <nav class="blue-grey">
+          <%= user.username %>
+        </nav>
+    <% } %>
   <div class="container">
-    <%- body %>
+      <%- body %>
   </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="/javascripts/select2.full.min.js"></script>
 <script src="/javascripts/main.js"></script>
 
 </html>

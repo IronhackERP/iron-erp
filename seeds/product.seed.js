@@ -23,33 +23,30 @@ const supplier = new Supplier({
   email: 'supplier1@gmail.com',
 })
 
-const products = [{
-    name: 'Coca-Cola Zero',
-    price: 0.99,
-    description: 'The amazing Coca-Cola Zero, without Sugar!!!',
-    supplier: supplier._id
-  },
-  {
-    name: 'Coca-Cola Normal',
-    price: 0.99,
-    description: 'The amazing Coca-Cola Zero, without Sugar!!!',
-    supplier: supplier._id
-  },
-  {
-    name: 'Coca-Cola Cherry',
-    price: 0.99,
-    description: 'The amazing Coca-Cola Zero, without Sugar!!!',
-    supplier: supplier._id
-  }
-]
+const products = new Product({
+  name: 'Coca-Cola Zero',
+  price: 0.99,
+  description: 'The amazing Coca-Cola Zero, without Sugar!!!',
+  supplier: supplier._id
+}, {
+  name: 'Coca-Cola Normal',
+  price: 0.99,
+  description: 'The amazing Coca-Cola Zero, without Sugar!!!',
+  supplier: supplier._id
+}, {
+  name: 'Coca-Cola Cherry',
+  price: 0.99,
+  description: 'The amazing Coca-Cola Zero, without Sugar!!!',
+  supplier: supplier._id
+})
 
 
 Supplier.create(supplier)
   .then(supplier => {
-    products.forEach(product => {
-        Product.create(product)
-      })
-      .catch(err => next(err))
+    return Product.create(products)
   })
-  .then(() => mongoose.connection.close())
-  .catch(err => next(err))
+  .then(() => {
+    console.log("terminado")
+    mongoose.connection.close()
+  })
+  .catch(err => console.log(err))
