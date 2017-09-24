@@ -6,7 +6,7 @@
 <a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href='#modal-suppliers-new'><i class="material-icons">add</i></a>
 
 <hr>
-<table>
+<table >
   <thead>
     <tr>
       <th>Supplier Name</th>
@@ -15,13 +15,13 @@
       <th>Email</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id='suppliers-all' data-suppliers-all="<%= suppliers %>">
     <% suppliers.forEach(supplier => { %>
       <tr>
-        <td><%= supplier.name %></td>
-        <td><%= supplier.companyName %></td>
-        <td><%= supplier.phoneNumber %></td>
-        <td><%= supplier.email %></td>
+        <td class='supplier-name' data-supplier-name="<%= supplier.name %>"><%= supplier.name %></td>
+        <td class='supplier-company-name' data-supplier-company-name="<%= supplier.companyName %>"><%= supplier.companyName %></td>
+        <td class='supplier-phone-number' data-supplier-phone-number="<%= supplier.phoneNumber %>"<%= supplier.phoneNumber %></td>
+        <td class='supplier-email' data-supplier-email="<%= supplier.email %>"><%= supplier.email %></td>
         <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td>
         <td><a class="waves-effect waves-light btn red" href="/suppliers/<%= supplier._id%>/delete">Delete</a></td>
       </tr>

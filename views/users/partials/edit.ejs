@@ -2,14 +2,14 @@
 <div id="modal-users-edit" class="modal">
   <div class="modal-content">
 
-    <h1>Edit User <%= user.username %></h1>
+    <h1 id='title-modal-edit'>Edit User</h1>
     <% if (typeof message != "undefined") { %>
       <div class="error-message">
         <%= message %>
       </div>
     <% } %>
     <div class='row'>
-      <form action="/users/edit" method="POST" class='col s12'>
+      <form prueba='' action="/users/:id/edit" id='id-modal-edit' method="POST" class='col s12'>
         <div class='row'>
           <div class="input-field col s12">
             <label for="user" data-error="wrong" data-success="right">User</label>
@@ -17,11 +17,11 @@
           </div>
           <div class="input-field col s6">
             <label for="first-name" data-error="wrong" data-success="right">First Name</label>
-            <input type="text" name="first-name" id="first-name-modal-edit" class="validate" required>
+            <input type="text" name="firstName" id="first-name-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
             <label for="last-name" data-error="wrong" data-success="right">Last Name</label>
-            <input type="text" name="last-name" id="last-name-modal-edit" class="validate" required>
+            <input type="text" name="lastName" id="last-name-modal-edit" class="validate" required>
           </div>
           <div class="input-field col s6">
             <label for="email" data-error="wrong" data-success="right">Email</label>
