@@ -19,3 +19,26 @@ hr {
   height: 5px;
   background-color: #607d8b;
 }
+
+h1 {
+  display: inline;
+  margin-left: 100px;
+  text-align: center
+}
+
+
+.btn-floating{
+  margin-top:10px
+}
+
+table.bordered{
+  margin-top: 50px;
+}
+
+.dashboard{
+  margin-bottom:20px;
+}
+
+header{
+  margin-top: 20px;
+}
