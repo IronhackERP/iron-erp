@@ -6,32 +6,32 @@
     <% if (typeof message != "undefined") { %>
       <div class="error-message"><%= message %></div>
     <% } %>
-		
+
     <div class='row'>
       <form action="/suppliers/new" method="POST" class='col s12'>
         <div class="row">
           <div class="input-field col s6">
             <label for="supplier" data-error="wrong" data-success="right">User</label>
-            <input type="text" name="supplier" id="supplier" class="validate">
+            <input type="text" name="supplier" id="supplier" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label for="company">Company</label>
-            <input type="text" name="companyName" id="companyName" class="validate">
+            <label for="company"data-error="wrong" data-success="right">Company</label>
+            <input type="text" name="companyName" id="companyName" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label for="phone">PhoneNumber</label>
-            <input type="tel" name="phoneNumber" id="phoneNumber" class="validate">
+            <label for="phone"data-error="wrong" data-success="right">PhoneNumber</label>
+            <input type="tel" name="phoneNumber" id="phoneNumber" class="validate" required>
           </div>
           <div class="input-field col s6">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="validate">
+            <label for="email"data-error="wrong" data-success="right">Email</label>
+            <input type="email" name="email" id="email" class="validate" required>
           </div>
           <div class="modal-footer">
-            <button class="waves-effect waves-light btn blue-grey" type='submit'>
+            <button class="waves-effect waves-light btn blue-grey btn-margin" type='submit'>
               CREATE
               <i class="material-icons right">send</i>
             </button>
-            <a href="/suppliers" class="waves-effect waves-light btn red">CANCEL</a>
+            <a href="/suppliers" class="waves-effect waves-light btn red btn-margin">CANCEL</a>
           </div>
         </div>
       </form>

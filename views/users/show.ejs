@@ -1,7 +1,8 @@
 <header>
-  <a class="waves-effect waves-light btn dashboard blue-grey" href="/dashboard">Back to dashboard</a>
+  <a class="back-link" href="/dashboard">Back to dashboard</a>
   <h1>List of users</h1>
-  <a class="btn-floating right btn-large waves-effect waves-light red btn modal-trigger left" href='#modal-users-new'><i class="material-icons">add</i></a>
+  <!-- Modal Trigger -->
+  <a class="btn-floating right btn-large waves-effect waves-light red btn modal-trigger" href='#modal-users-new'><i class="material-icons">add</i></a>
 </header>
 <hr>
 <table class="bordered responsive-table">
@@ -28,7 +29,9 @@
 	        <td><a href="#modal-users-edit" class="waves-effect waves-light blue-grey btn modal-trigger edit-button-user" data-user-id="<%= user._id %>" >
             <i class="material-icons">edit</i>
           </a></td>
-	        <td><a class="waves-effect waves-light btn red" href="/users/<%= user._id%>/delete"><i class="material-icons">delete</i></a></td>
+	        <td><a class="waves-effect waves-light btn red" href="/users/<%= user._id%>/delete">
+            <i class="material-icons">delete</i>
+          </a></td>
 	      </tr>
 	    <% }) %>
     <% } %>
