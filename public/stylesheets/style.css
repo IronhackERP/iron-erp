@@ -15,14 +15,6 @@ a {
   margin: 0 auto;
 }
 
-.label-modal-edit {
-  visibility: hidden;
-}
-
-.product-client-list{
-  width: 100%;
-}
-
 hr {
   height: 5px;
   background-color: #607d8b;

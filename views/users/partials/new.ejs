@@ -3,10 +3,15 @@
   <div class="modal-content">
 
     <h1>New User</h1>
+<<<<<<< HEAD
     <% if (typeof message !== "undefined") { %>
     <div class="error-message">
       <%= message %>
     </div>
+=======
+    <% if (typeof message != "undefined") { %>
+    <div class="error-message"><%= message %></div>
+>>>>>>> 96255492911f578d30b49d1bee34554444fabd6a
     <% } %>
     <div class='row'>
       <form action="/users/new" method="POST" class='col s12'>
@@ -39,12 +44,12 @@
             </select>
           </div>
           <div class="modal-footer">
-          <button class="waves-effect waves-light btn" type='submit'>
-            CREATE
-            <i class="material-icons right">send</i>
-          </button>
-          <a class="waves-effect waves-light btn red" href="/users">CANCEL</a>
-        </div>
+            <button class="waves-effect waves-light btn blue-grey" type='submit'>
+              CREATE
+              <i class="material-icons right">send</i>
+            </button>
+            <a class="waves-effect waves-light btn red" href="/users">CANCEL</a>
+          </div>
         </div>
       </form>
     </div>

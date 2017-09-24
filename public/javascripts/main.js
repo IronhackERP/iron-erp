@@ -4,45 +4,58 @@ $(document).ready(function() {
 
   Materialize.updateTextFields();
   $('select').material_select();
-
   $('#modal-suppliers-new').modal();
+    $('#modal-suppliers-edit').modal();
   $('#modal-users-new').modal();
   $('#modal-users-edit').modal();
 
-  $('.edit-button').click(function(e) {
+  //CORRECTO--->
+  $('.edit-button-user').click(function(e) {
     e.preventDefault()
-    const id = $(this).attr('data-user-id');
-    const username = $(this).parent().parent().children('.user-name').data('user-name')
-    const firstName = $(this).parent().parent().children('.first-name').data('first-name')
-    const lastName = $(this).parent().parent().children('.last-name').data('last-name')
-    const email = $(this).parent().parent().children('.user-email').data('user-email')
-    const rol = $(this).parent().parent().children('.user-rol').data('user-rol')
-
     const selectedUser = {
-      id: id,
-      username: username,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      rol: rol
+      id: $(this).attr('data-user-id'),
+      username: $(this).parent().parent().children('.user-name').data('user-name'),
+      firstName: $(this).parent().parent().children('.first-name').data('first-name'),
+      lastName: $(this).parent().parent().children('.last-name').data('last-name'),
+      email: $(this).parent().parent().children('.user-email').data('user-email'),
+      rol: $(this).parent().parent().children('.user-rol').data('user-rol'),
     }
-    console.log("El objeto a editar es: ");
-    console.log(selectedUser);
-    console.log(selectedUser.rol);
+    setDataUserFormEdit(selectedUser);
+  })
 
-    setDataFormModal(selectedUser);
+  $('.edit-button-user').click(function(e) {
+    e.preventDefault()
+    const selectedUser = {
+      id: $(this).attr('data-user-id'),
+      username: $(this).parent().parent().children('.user-name').data('user-name'),
+      firstName: $(this).parent().parent().children('.first-name').data('first-name'),
+      lastName: $(this).parent().parent().children('.last-name').data('last-name'),
+      email: $(this).parent().parent().children('.user-email').data('user-email'),
+      rol: $(this).parent().parent().children('.user-rol').data('user-rol'),
+    }
+    setDataUserFormEdit(selectedUser);
   })
 });
-//$('#rol-modal-edit> option[value="admin"]').attr('selected', 'selected');
-function setDataFormModal(selectedUser) {
+
+  //CORRECTO--->
+function setDataUserFormEdit(selectedUser) {
+  $('#title-modal-edit-user').text(`Edit User ${selectedUser.username}`);
+  $('#id-modal-edit-user').attr('action',`/users/${selectedUser.id}/edit`);
   $('#user-modal-edit').val(selectedUser.username);
   $('#first-name-modal-edit').val(selectedUser.firstName);
   $('#last-name-modal-edit').val(selectedUser.lastName);
-  $('#email-modal-edit').val(selectedUser.email);
-  if ((selectedUser.rol) === 'admin') {
-    $('#rol-modal-edit> option[value="admin"]').attr('selected', 'selected');
-  }
-  if ((selectedUser.rol) === 'employee') {
-    $('#rol-modal-edit> option[value="employee"]').attr('selected', 'selected');
-  }
+  $('#email-modal-edit-user').val(selectedUser.email);
+  $(`select#rol-modal-edit-user > option[value=${selectedUser.rol}]`).attr('selected', 'selected');
+  $('select#rol-modal-edit-user').material_select();
+  Materialize.updateTextFields();
+}
+
+function setDataSupplierFormEdit(selectedSupplier) {
+  $('#title-modal-edit-supplier').text(`Edit Supplier ${selectedSupplier.name}`);
+  $('#id-modal-edit-supplier').attr('action',`/users/${selectedSupplier.id}/edit`);
+  $('#supplier-modal-edit').val(selectedSupplier.name);
+  $('#company-name-modal-edit').val(selectedSupplier.companyName);
+  $('#phone-number-modal-edit').val(selectedSupplier.phoneNumber);
+  $('#email-modal-edit').val(selectedSupplier.email);
+  Materialize.updateTextFields();
 }

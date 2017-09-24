@@ -3,9 +3,10 @@
 <button data-target="modal-suppliers-new" class="waves-effect waves-light btn blue-grey modal-trigger">New supplier</button>
 
 <a class="waves-effect waves-light btn blue-grey" href="/dashboard">Back to dashboard</a>
+<a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href='#modal-suppliers-new'><i class="material-icons">add</i></a>
 
 <hr>
-<table>
+<table >
   <thead>
     <tr>
       <th>Supplier Name</th>
@@ -17,14 +18,23 @@
   <tbody>
     <% suppliers.forEach(supplier => { %>
       <tr>
-        <td><%= supplier.name %></td>
-        <td><%= supplier.companyName %></td>
-        <td><%= supplier.phoneNumber %></td>
-        <td><%= supplier.email %></td>
-        <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td>
+        <td class='supplier-name' data-supplier-name="<%= supplier.name %>"><%= supplier.name %></td>
+        <td class='supplier-company-name' data-supplier-company-name="<%= supplier.companyName %>"><%= supplier.companyName %></td>
+        <td class='supplier-phone-number' data-supplier-phone-number="<%= supplier.phoneNumber %>"><%= supplier.phoneNumber %></td>
+        <td class='supplier-email' data-supplier-email="<%= supplier.email %>"><%= supplier.email %></td>
+        <!-- Modal Trigger -->
+        <!-- <td><button data-target="modal-users-edit" class="btn blue-grey modal-trigger edit-button-user" data-user-id="<%= user._id %>" >Edit</button></td> -->
+        <td><button data-target="modal-suppliers-edit" class="btn blue-grey modal-trigger edit-button-supplier" data-supplier-id="<%= supplier._id %>" >Edit</button></td>
+        <!-- <td><a class="waves-effect waves-light btn blue-grey" href="/suppliers/<%= supplier._id%>/edit">Edit</a></td> -->
         <td><a class="waves-effect waves-light btn red" href="/suppliers/<%= supplier._id%>/delete">Delete</a></td>
       </tr>
       <% }) %>
   </tbody>
 </table>
+<<<<<<< HEAD
 <%- include("partials/new.ejs") %>
+=======
+<!-- Modals Includes-->
+<%- include("partials/new.ejs") %>
+<%- include("partials/edit.ejs") %>
+>>>>>>> 96255492911f578d30b49d1bee34554444fabd6a
