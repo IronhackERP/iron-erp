@@ -1,7 +1,7 @@
 <!-- Modal Structure -->
 <div id="modal-users-edit" class="modal">
   <div class="modal-content">
-    <h1>Edit User <%= user.username %></h1>
+    <h1  id='title-modal-edit-user'></h1>
     <% if (typeof message != "undefined") { %>
       <div class="error-message">
         <%= message %>
@@ -15,7 +15,7 @@
             <input type="text" name="user" id="user-modal-edit" class="validate" value="<%= user.username %>" required>
           </div>
           <div class="input-field col s6">
-            <label class='label-modal-edit' visibility='hidden' for="first-name" data-error="wrong" data-success="right">First Name</label>
+            <label class='label-modal-edit' for="first-name" data-error="wrong" data-success="right">First Name</label>
             <input type="text" name="firstName" id="first-name-modal-edit" class="validate" value="<%= user.firstName %>" required>
           </div>
           <div class="input-field col s6">
@@ -30,11 +30,11 @@
             <input type="text" name="rol" id="rol" value="<%= user.rol %>" disabled>
           </div>
           <div class="modal-footer">
-            <button class="waves-effect waves-light btn blue-grey" type='submit'>
+            <button class="waves-effect waves-light btn blue-grey btn-margin" type='submit'>
               UPDATE
               <i class="material-icons right">send</i>
             </button>
-            <a class="waves-effect waves-light red btn" href="/users">CANCEL</a>
+            <a class="waves-effect waves-light red btn btn-margin" href="/users">CANCEL</a>
           </div>
         </div>
       </form>

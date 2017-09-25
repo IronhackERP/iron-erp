@@ -1,26 +1,51 @@
+<br />
 <h1>New Client</h1>
 <hr><br>
-<form action="/clients/new" method="post">
-  <label for="firstName">Name</label>
-  <input type="text" name="firstName" id="firstName">
-  <label for="lastName">Last name</label>
-  <input type="text" name="lastName" id="lastName">
-  <label for="email">Email</label>
-  <input type="email" name="email" id="email">
-  <label for="address">Address</label>
-  <input type="text" name="address" id="address">
-  <label for="phoneNumber">Phone Number</label>
-  <input type="tel" name="phoneNumber" id="phoneNumber">
-  <select class="product-client-list col s12" name="productsList" multiple="multiple" id="productsList">
-    <% productsListSelect.forEach(product => {  %>
-      <option value="<%= product.id %>"><%= product.name %></option>
-    <% }) %>
-  </select>
-  <select name="employeeVendor" id="employeeVendor">
-    <% users.forEach(user => { %>
-      <option value="<%= user.id %>"><%= user.username %></option>
-    <% })%>
-  </select>
-  <button class="waves-effect waves-light btn blue-grey">Create</button>
-  <a class="waves-effect waves-light btn blue-grey" href="/clients">Back to client list</a>
-</form>
+<div class="row">
+    <form action="/clients/new" method="post">
+      <div class="row">
+        <div class="input-field col s6">
+            <label class="white-text" for="firstName">Name</label>
+            <input class="validate" type="text" name="firstName" id="firstName" required>
+        </div>
+        <div class="input-field col s6">
+            <label class="white-text" for="lastName">Last name</label>
+            <input class="validate" type="text" name="lastName" id="lastName" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <label class="white-text" for="email">Email</label>
+            <input class="validate" type="email" name="email" id="email" required>
+        </div>
+        <div class="input-field col s6">
+            <label class="white-text" for="address">Address</label>
+            <input class="validate" type="text" name="address" id="address" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label class="white-text" for="phoneNumber">Phone Number</label>
+          <input class="validate" type="tel" name="phoneNumber" id="phoneNumber" required>
+        </div>
+        <div class="input-field col s6">
+          <select name="employeeVendor" id="employeeVendor">
+            <% users.forEach(user => { %>
+              <option class="white-text" value="<%= user.id %>"><%= user.username %></option>
+            <% })%>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select class="product-client-list col s12" name="productsList" multiple="multiple" id="productsList">
+            <% productsListSelect.forEach(product => {  %>
+              <option value="<%= product.id %>"><%= product.name %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+      <a class="waves-effect waves-light red btn btn-margin right" href="/clients">Cancel</a>
+      <button class=" btn-margin waves-effect waves-light btn blue-grey right">Create</button>
+    </form>
+</div>
