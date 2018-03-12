@@ -12,22 +12,22 @@ const hashPass = bcrypt.hashSync(password, salt)
 
 const users = [
   {
-  username: 'Admin1',
-  firstName: 'José',
-  lastName: 'Pérez',
-  email: 'admin1@gmail.com',
-  password: hashPass,
-  rol:'admin'
+    username: 'Admin',
+    firstName: 'José',
+    lastName: 'Pérez',
+    email: 'admin1@gmail.com',
+    password: hashPass,
+    rol:'admin'
   }
-]
+];
 
-User.create(users, (err, docs) => {
-  if (err) {
-    throw err
-  }
-
-  docs.forEach((user) => {
-    console.log(user.username)
+User.create(users)
+  .then(users => {
+    users.forEach(user => console.log(`${user.username} created`))
+    console.log('Data created properly...');
+    mongoose.disconnect();
   })
-  mongoose.connection.close()
-})
+  .catch(err => {
+    console.log(`ERROR -> ${err}`);
+    throw err;
+  });
