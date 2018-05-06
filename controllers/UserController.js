@@ -4,16 +4,13 @@ const User = require('../models/User')
 
 module.exports = {
   get: (req, res, next) => {
-    res.render('users/new', { title: 'List of Users'})
+    res.render('users/new', {
+      title: 'List of Users'
+    })
   },
   post: (req, res, next) => {
-    const username = req.body.user
-    const firstName = req.body.firstName
-    const lastName = req.body.lastName
-    const password = req.body.password
-    const email = req.body.email
-    const rol = req.body.rol
-
+    const { username, firstName, lastName, password, email, rol } = req.body
+  
     if (username === '' && password === '') {
       res.render('users/new', {
         message: 'Indicate username and password'
@@ -45,14 +42,22 @@ module.exports = {
   },
   getEdit: (req, res, next) => {
     User.findById(req.params.id)
-      .then(selectedUser => res.render('users/edit', {selectedUser}))
+      .then(selectedUser => res.render('users/edit', {
+        selectedUser
+      }))
       .catch(err => next(err))
   },
   postEdit: (req, res, next) => {
-    User.findByIdAndUpdate(req.params.id, { $set: {username: req.body.user,
-      firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email } })
-    .then(() => res.redirect('/users'))
-    .catch(err => next(err))
+    User.findByIdAndUpdate(req.params.id, {
+        $set: {
+          username: req.body.user,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email
+        }
+      })
+      .then(() => res.redirect('/users'))
+      .catch(err => next(err))
   },
   delete: (req, res, next) => {
     const userID = req.params.id
