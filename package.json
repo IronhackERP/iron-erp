@@ -22,7 +22,7 @@
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "mongo-session": "^0.2.15",
-    "mongoose": "~4.11.14",
+    "mongoose": "~4.13.17",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
